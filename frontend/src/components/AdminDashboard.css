@@ -1,0 +1,284 @@
+/* src/components/AdminDashboard.css */
+
+/* --- Animasi Dasar --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Kontainer Utama Dashboard --- */
+.admin-dashboard-container {
+  --adm-bg: #f6f8fb;
+  --adm-surface: #ffffff;
+  --adm-surface-2: #f1f5f9;
+  --adm-text: #1f2937;
+  --adm-text-dim: #4b5563;
+  --adm-border: #e5e7eb;
+  --adm-accent: #2563eb; /* blue */
+  --adm-accent-2: #06b6d4; /* cyan */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  animation: fadeIn 0.6s ease-out;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: var(--adm-bg);
+  color: var(--adm-text);
+  min-height: calc(100vh - 70px);
+}
+
+/* --- Judul Utama Dashboard --- */
+.admin-dashboard-title {
+  font-size: clamp(1.6rem, 3.2vw, 2rem);
+  font-weight: 800;
+  color: var(--adm-accent);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: .2px;
+}
+
+/* --- Bar Tombol Aksi Atas --- */
+.admin-actions-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem; /* Jarak antar tombol */
+  padding: 1rem 1.25rem;
+  background-color: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, .06);
+  margin-bottom: 2rem;
+}
+
+/* Styling Umum untuk Tombol di Admin Dashboard (jika ingin override Bootstrap) */
+/* Lebih baik gunakan kelas spesifik jika memungkinkan agar tidak terlalu global */
+.admin-dashboard-container .btn {
+  transition: all 0.25s ease-in-out;
+  font-weight: 500;
+  border-radius: 8px; /* Radius tombol yang seragam */
+  padding: 0.6rem 1.2rem; /* Padding tombol yang seragam */
+  font-size: 0.9rem;
+  border: 1px solid var(--adm-border);
+}
+.admin-dashboard-container .btn:hover {
+  transform: translateY(-2px) scale(1.03); /* Efek hover lebih menarik */
+  opacity: 0.98;
+  box-shadow: 0 10px 18px rgba(17, 24, 39, .10);
+}
+
+/* Tombol Aksi Spesifik di Bar Atas */
+.admin-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.admin-action-btn .lucide-icon { /* Styling ikon di dalam tombol ini */
+    width: 17px;
+    height: 17px;
+}
+
+
+/* --- Styling Kartu (Card) --- */
+.admin-card {
+  border-radius: 16px; /* Radius lebih besar seperti keinginan Anda */
+  box-shadow: 0 8px 24px rgba(17, 24, 39, .08);
+  background: var(--adm-surface);
+  /* padding: 24px; Dihapus karena Bootstrap .card sudah punya padding, atau kita atur di card-body */
+  margin-bottom: 2rem !important; /* Jarak antar kartu */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: none; /* Hapus border default jika sudah pakai shadow */
+}
+.admin-card:hover {
+  transform: translateY(-3px); /* Angkat sedikit saat hover */
+  box-shadow: 0 16px 32px rgba(17, 24, 39, .12);
+}
+
+.admin-card .card-header.admin-card-header { /* Lebih spesifik */
+  background-color: var(--adm-surface-2);
+  border-bottom: 1px solid var(--adm-border);
+  padding: 1rem 1.5rem; /* Padding header kartu */
+  border-top-left-radius: 16px; /* Sesuaikan dengan radius kartu */
+  border-top-right-radius: 16px;
+}
+
+.admin-card .card-body {
+    padding: 1.5rem; /* Padding konsisten untuk body kartu */
+}
+
+.admin-card-title {
+  font-size: 1.2rem; /* Ukuran font judul kartu */
+  font-weight: 600;
+  color: var(--adm-text);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0 !important;
+}
+.admin-card-title .lucide-icon { /* Ikon di judul kartu */
+  width: 20px;
+  height: 20px;
+  margin-right: 0.6rem;
+  color: var(--adm-accent);
+}
+
+/* Form Edit dan Tambah User - Header Khusus */
+.edit-user-form .card-header.admin-card-header,
+.add-user-form .card-header.admin-card-header {
+    background-color: #e7f3ff; /* Latar biru muda untuk form */
+    border-color: #b8daff;
+}
+.edit-user-form .admin-card-title,
+.add-user-form .admin-card-title {
+    color: #0056b3; /* Warna judul biru tua untuk form */
+}
+.edit-user-form .admin-card-title .lucide-icon,
+.add-user-form .admin-card-title .lucide-icon {
+    color: #0056b3;
+}
+
+
+/* --- Statistik Penggunaan Fitur --- */
+.feature-stats-list .list-group-item.feature-stat-item {
+  padding: 0.9rem 0; /* Atur padding, hilangkan padding horizontal default list-group */
+  font-size: 0.95rem;
+  background-color: transparent; /* Agar menyatu dengan card-body */
+  border-bottom: 1px solid #f1f1f1 !important;
+}
+.feature-stats-list .list-group-item.feature-stat-item:last-child {
+  border-bottom: none !important;
+}
+.feature-stats-list .feature-stat-item .badge { /* Styling badge di statistik */
+  font-size: 0.8rem; /* Ukuran font badge di statistik */
+  padding: 0.4em 0.8em; /* Padding badge */
+  border-radius: 20px; /* Badge lebih bulat */
+}
+
+/* Chart Container */
+.chart-container {
+  margin-top: 1rem; /* Jarak dari tombol toggle view */
+}
+.card-header .btn-group .btn .lucide-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.4rem;
+}
+
+
+/* --- Tabel Pengguna --- */
+.admin-user-table-wrapper { /* Tambahkan wrapper jika perlu untuk shadow/radius pada tabel */
+  border-radius: 12px;
+  overflow: hidden; /* Penting jika tabel punya border-radius */
+  box-shadow: 0 0 15px rgba(0,0,0,0.06);
+}
+.admin-user-table {
+  margin-bottom: 0; /* Hapus margin bawah default tabel jika sudah dibungkus */
+}
+.admin-user-table th {
+  position: sticky; top: 0; z-index: 2;
+  background-color: #1f2937; /* slate-800 */
+  color: #f9fafb;
+  text-align: center;
+  padding: 0.9rem 0.75rem; /* Padding header tabel */
+  font-weight: 600;
+  font-size: 0.9rem; /* Ukuran font header tabel */
+  vertical-align: middle;
+}
+.admin-user-table td {
+  vertical-align: middle;
+  text-align: left; /* Rata kiri untuk data, kecuali yang spesifik */
+  padding: 0.9rem 0.75rem;
+  font-size: 0.875rem; /* Ukuran font isi tabel */
+}
+.admin-user-table tbody tr:nth-child(even) { background-color: #f8fafc; }
+.admin-user-table .cell-id,
+.admin-user-table .cell-status,
+.admin-user-table .cell-tokens,
+.admin-user-table .cell-actions {
+    text-align: center; /* Kolom tertentu tetap di tengah */
+}
+.admin-user-table .cell-email {
+    word-break: break-all; /* Pecah email panjang jika perlu */
+}
+.admin-user-table .cell-actions .btn { /* Tombol di dalam tabel */
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+.admin-user-table .cell-actions .lucide-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 0;
+}
+.table-hover tbody tr:hover { background-color: #eff6ff; }
+
+/* Badge di dalam tabel */
+.admin-user-table .badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.7em;
+    border-radius: 20px; /* Samakan dengan badge umum jika mau */
+}
+.admin-user-table .badge.bg-success { /* Pastikan override Bootstrap jika perlu */
+  background-color: #198754 !important; 
+}
+.admin-user-table .badge.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+
+/* --- Form Input & Select --- */
+.admin-card .form-control,
+.admin-card .form-select {
+  font-size: 0.9rem;
+  border-radius: 8px !important; /* Radius dari CSS Anda */
+  padding: 0.6rem 0.9rem; /* Padding dari CSS Anda, disesuaikan */
+  border: 1px solid var(--adm-border);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.admin-card .form-control:focus,
+.admin-card .form-select:focus {
+  border-color: var(--adm-accent);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+.admin-card .form-label {
+  font-size: 0.875rem; /* Ukuran font label */
+  font-weight: 500;
+  margin-bottom: 0.4rem; /* Jarak bawah label */
+  color: #495057;
+}
+
+/* --- Tombol Form --- */
+.edit-user-form .d-flex.justify-content-end.gap-2 .btn,
+.add-user-form .d-flex.justify-content-end .btn {
+    font-size: 0.9rem;
+    /* Padding dan radius sudah diatur oleh .admin-dashboard-container .btn */
+}
+.edit-user-form .lucide-icon,
+.add-user-form .lucide-icon { /* Ikon di tombol form */
+    width: 17px;
+    height: 17px;
+}
+
+
+/* --- Ikon Lucide Umum --- */
+.lucide-icon {
+  /* Ukuran default sudah diatur di kelas spesifik, ini bisa jadi fallback */
+  /* width: 18px;  */
+  /* height: 18px; */
+  /* margin-right: 0.5rem; */ /* Dihapus karena lebih baik diatur per konteks */
+  vertical-align: text-bottom; /* Alignment ikon yang lebih baik */
+  stroke-width: 2; /* Ketebalan garis ikon */
+}
+
+/* Animasi Loader Ikon */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.lucide-loader-spinning {
+  animation: spin 1s linear infinite;
+}

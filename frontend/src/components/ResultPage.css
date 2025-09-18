@@ -1,0 +1,76 @@
+/* src/components/ResultPage.css */
+
+.result-page-container {
+  animation-duration: 0.6s; /* Durasi default untuk animasi masuk halaman */
+}
+
+.result-page-title {
+  font-weight: 600;
+  color: #004085; /* Biru yang lebih dalam */
+}
+
+.user-greeting-box {
+  background-color: #e9f5ff !important; /* Menggunakan !important jika bg-light Bootstrap terlalu lemah */
+  border-color: #b8dfff !important;
+  border-radius: 0.5rem;
+}
+
+.user-greeting-box h2 .lucide-icon { /* Jika Anda menambahkan ikon di greeting */
+  vertical-align: -4px;
+}
+
+.answers-summary .section-title .lucide-icon {
+  vertical-align: -3px;
+}
+
+.answers-summary .answer-item {
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.answers-summary .answer-item .answer-text {
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.answers-summary .score-badge {
+  font-size: 0.8em;
+  padding: 0.4em 0.7em;
+}
+
+.evaluation-summary .card-header .lucide-icon {
+  vertical-align: -3px;
+}
+
+.evaluation-summary .feedback-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.evaluation-summary .conclusion-text {
+  font-size: 1.05rem;
+}
+
+.result-actions .btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+.result-actions .btn .lucide-icon {
+  vertical-align: -2px;
+}
+
+
+/* Animasi untuk teks loading (opsional, jika ingin lebih dari ClipLoader) */
+.animate__pulse {
+  animation-duration: 1.5s; /* Durasi animasi pulse */
+}
+
+/* Menyesuaikan tampilan ClipLoader jika perlu */
+.result-page-container .text-center .d-flex > div { /* Target div dari ClipLoader */
+    margin: auto; /* Pusatkan spinner jika dibungkus flex */
+}
+
+/* Animasi delay (animate.css menyediakan kelas ini, tapi bisa juga custom) */
+.animate__delay-0\.5s { animation-delay: 0.5s; }
+.animate__delay-1s { animation-delay: 1s; }
+.animate__delay-1\.5s { animation-delay: 1.5s; }
+.animate__delay-2s { animation-delay: 2s; }

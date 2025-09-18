@@ -1,0 +1,11 @@
+[build]
+builder = "NIXPACKS"
+
+[phases.setup]
+nixPkgs = ["python310", "python310Packages.pip"]
+
+[phases.install]
+cmds = ["pip install -r backend/requirements.txt"]
+
+[start]
+cmd = "cd backend && python3 app.py"

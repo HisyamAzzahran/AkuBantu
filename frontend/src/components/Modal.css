@@ -1,0 +1,113 @@
+/* src/components/TopBar.css */
+/* ... (CSS TopBar Anda yang lain tetap sama) ... */
+
+/* --- Styling untuk Modal yang Dibuka dari TopBar (Menggunakan kelas dari Modal.js) --- */
+
+/* Ini adalah OVERLAY MODAL (sebelumnya .modal-custom-overlay) */
+.modal-backdrop { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.65); /* Overlay gelap standar */
+  background-color: transparent !important; /* << UNTUK MEMBUAT OVERLAY TRANSPARAN */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Pastikan di atas topbar jika topbar sticky */
+  /* Opsi jika ingin sedikit blur saat overlay transparan: */
+  /* backdrop-filter: blur(3px); */
+  /* background-color: rgba(33, 37, 41, 0.1); */ /* Sedikit warna gelap transparan */
+  padding: 20px; /* Jarak dari tepi layar untuk konten modal */
+}
+
+/* Ini adalah KONTAINER UTAMA KONTEN MODAL (sebelumnya .modal-custom-content) */
+.modal-backdrop .modal-content { /* Menargetkan .modal-content di dalam .modal-backdrop */
+  background-color: #f0f0f0 !important; /* Latar modal sedikit abu */
+  border-radius: 15px !important; /* Radius lebih besar untuk modal */
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2) !important;
+  width: 90%;
+  max-width: 700px !important; /* Lebar maksimum modal produk */
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */ /* Dihapus sementara, karena header & footer akan di-styling sendiri */
+  animation: fadeInScale 0.3s ease-out; /* Animasi dari TopBar.css */
+  max-height: 90vh; /* Batas tinggi modal agar bisa discroll */
+  position: relative; /* Diperlukan jika tombol close di header diposisikan absolut */
+}
+
+/* Pastikan animasi ini ada di TopBar.css jika belum */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Styling untuk header, body, footer YANG DIKIRIM DARI TopBar.js */
+/* Kelas-kelas ini ada di dalam {children} dari Modal.js */
+
+.modal-header-custom { /* Ini adalah header yang ada di JSX TopBar.js */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--medium-gray);
+  background-color: #ffffff; /* Header putih bersih */
+  border-top-left-radius: var(--border-radius-lg); /* Sesuaikan dengan radius .modal-content */
+  border-top-right-radius: var(--border-radius-lg); /* Sesuaikan dengan radius .modal-content */
+}
+.modal-title-custom {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.modal-title-custom .title-icon {
+  stroke-width: 2.5;
+}
+
+/* Tombol close YANG ADA DI TopBar.js (BUKAN dari Modal.js) */
+.btn-close-custom { 
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236c757d'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  border: none;
+  border-radius: 0.25rem; /* Sedikit radius untuk area klik */
+  padding: 0.75rem;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+.btn-close-custom:hover { 
+  opacity: 1;
+  background-color: rgba(0,0,0,0.05); /* Feedback visual saat hover */
+}
+.btn-close-custom:disabled { 
+  opacity: 0.4; 
+  cursor: not-allowed; 
+}
+
+
+.modal-body-custom.product-selection-modal-body { /* Ini adalah body dari TopBar.js */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+  background-color: var(--light-gray); /* Pastikan body memiliki backgroundnya sendiri */
+}
+
+/* ... (semua styling untuk .product-item-card, .custom-token-section, dll. TETAP SAMA seperti di TopBar.css sebelumnya) ... */
+
+.modal-footer-custom { /* Ini adalah footer dari TopBar.js */
+  background-color: #ffffff; /* Footer putih, atau var(--light-gray) agar menyatu dgn body */
+  border-top: 1px solid var(--medium-gray);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: var(--border-radius-lg); /* Sesuaikan dengan radius .modal-content */
+  border-bottom-right-radius: var(--border-radius-lg); /* Sesuaikan dengan radius .modal-content */
+}
+.btn-close-footer {
+  /* ... (styling tombol tutup di footer tetap sama) ... */
+}

@@ -1,0 +1,5765 @@
+/* App.css - Futuristic Design */
+@import "animate.css";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+
+/* ---- Design Tokens ---- */
+:root {
+  --bg: #0a0a0a;
+  --bg-alt: #1a1a2e;
+  --surface: #121228;
+  --surface-2: #1b1b34;
+  --border: rgba(255, 255, 255, 0.15);
+  --accent: #00f5ff;
+  --accent-2: #ff00ff;
+  --text: #ffffff;
+  --text-dim: #b0b0b0;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 20px rgba(0, 245, 255, 0.25);
+}
+
+
+
+
+/* --- Modal Styling --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.modal-overlay-futuristic {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 25, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content-futuristic {
+    background: linear-gradient(145deg, #1e1e3f, #1a1a33);
+    color: #e0e0e0;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-header-futuristic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title-futuristic {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+}
+
+.btn-close-futuristic {
+    background: transparent;
+    border: none;
+    color: #a0a0b0;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.btn-close-futuristic:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.modal-body-futuristic {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Custom Scrollbar for Modal Body */
+.modal-body-futuristic::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-body-futuristic::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+.modal-body-futuristic::-webkit-scrollbar-thumb {
+    background: #4a4a6a;
+    border-radius: 4px;
+}
+.modal-body-futuristic::-webkit-scrollbar-thumb:hover {
+    background: #6a6a8a;
+}
+
+/* --- Product Grid & Cards Styling --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item-card-futuristic {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    cursor: pointer;
+}
+
+.product-item-card-futuristic:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: rgba(118, 93, 255, 0.7);
+}
+
+.best-value-badge-futuristic {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: #765dff;
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 5px rgba(118, 93, 255, 0.5);
+}
+
+.product-icon-wrapper-futuristic {
+    margin: 0 auto 16px auto;
+    color: #765dff;
+}
+
+.product-icon.premium-icon { color: #fdda3f; }
+.product-icon.token-icon { color: #3fd4f4; }
+
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #fff;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #a0a0b0;
+    margin-bottom: 16px;
+    flex-grow: 1; /* Makes cards equal height */
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.select-product-btn-futuristic {
+    background: #765dff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.select-product-btn-futuristic:hover:not(:disabled) {
+    background: #6249e0;
+}
+
+.select-product-btn-futuristic:disabled {
+    background: #4a4a6a;
+    cursor: not-allowed;
+}
+
+/* --- Custom Token Card Styling --- */
+.custom-token-card-futuristic {
+    grid-column: 1 / -1; /* Makes this card span full width */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.custom-token-content {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+.custom-token-content .product-icon-wrapper-futuristic { margin: 0 0 12px 0; }
+.custom-token-content .product-title { margin-bottom: 4px; }
+
+.custom-token-action {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.custom-token-input-container {
+    display: flex;
+    align-items: center;
+    background: #1e1e3f;
+    border: 1px solid #4a4a6a;
+    border-radius: 8px;
+    padding: 4px;
+    transition: border-color 0.2s;
+}
+
+.custom-token-input-container:focus-within {
+    border-color: #765dff;
+}
+
+.custom-token-input-container input[type="number"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 12px;
+    -moz-appearance: textfield; /* Firefox */
+}
+.custom-token-input-container input[type="number"]::-webkit-outer-spin-button,
+.custom-token-input-container input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.custom-token-input-container input:focus {
+    outline: none;
+}
+
+.custom-token-input-container span {
+    color: #a0a0b0;
+    padding-right: 12px;
+    font-weight: 500;
+}
+
+.custom-token-total-price {
+    font-size: 0.9rem;
+    color: #a0a0b0;
+    text-align: center;
+    margin: 0;
+}
+.custom-token-total-price strong {
+    color: #fff;
+    font-weight: 600;
+}
+.essay-results-wrapper {
+    margin-top: 2.5rem;
+}
+
+.essay-results-wrapper h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.essay-result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #00f5ff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.essay-result-section {
+    margin-bottom: 1.5rem;
+}
+.essay-result-section:last-child {
+    margin-bottom: 0;
+}
+
+.essay-result-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: #00f5ff;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.essay-result-card p {
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.essay-result-title-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+/* --- Media Query untuk Layar Mobile (lebar di bawah 768px) --- */
+@media (max-width: 768px) {
+    .generator-container-futuristic .generator-header {
+        padding: 0 1rem; /* Mengurangi padding horizontal */
+    }
+
+    .generator-container-futuristic .generator-title-futuristic {
+        font-size: 1.5rem; /* Mengecilkan judul */
+    }
+
+    .generator-container-futuristic .generator-subtitle-futuristic {
+        font-size: 0.9rem; /* Mengecilkan subjudul */
+    }
+
+    /* Mengubah grid menjadi satu kolom */
+    .generator-container-futuristic .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generator-container-futuristic .generator-actions {
+        flex-direction: column; /* Tombol menjadi vertikal */
+        gap: 0.75rem;
+    }
+
+    .essay-results-wrapper h3 {
+        font-size: 1.2rem;
+    }
+
+    .essay-result-card {
+        padding: 1rem;
+    }
+}
+.ikigai-results-wrapper {
+    margin-top: 2.5rem;
+}
+
+.ikigai-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.ikigai-results-header h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ikigai-intro-section,
+.ikigai-explanation-section,
+.ikigai-cta-section {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+.ikigai-section-title {
+    font-family: 'Orbitron', monospace;
+    color: #00f5ff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.ikigai-table-container {
+    margin-bottom: 2rem;
+}
+
+.table-responsive-wrapper {
+    overflow-x: auto; /* Kunci untuk responsivitas tabel */
+}
+
+.ikigai-strategy-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.ikigai-strategy-table th,
+.ikigai-strategy-table td {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.ikigai-strategy-table th {
+    background-color: rgba(0, 245, 255, 0.1);
+    color: #00f5ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.ikigai-strategy-table td strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.ikigai-strategy-table td p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+.swot-results-wrapper {
+    margin-top: 2.5rem;
+}
+
+.swot-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.swot-results-header h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.swot-markdown-content {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+/* --- Penataan Elemen Markdown di Dalam Hasil SWOT --- */
+
+.swot-markdown-content h1, 
+.swot-markdown-content h2, 
+.swot-markdown-content h3 {
+    font-family: 'Orbitron', monospace;
+    color: #00f5ff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+}
+
+.swot-markdown-content h1 { font-size: 1.8rem; }
+.swot-markdown-content h2 { font-size: 1.5rem; }
+.swot-markdown-content h3 { font-size: 1.3rem; color: #ff00ff; }
+
+.swot-markdown-content p {
+    margin-bottom: 1rem;
+}
+
+.swot-markdown-content strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.swot-markdown-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.swot-markdown-content li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.swot-markdown-content li::before {
+    content: '⚡️';
+    position: absolute;
+    left: 0;
+    color: #00f5ff;
+    font-size: 1rem;
+}
+
+.swot-markdown-content blockquote {
+    border-left: 4px solid #00f5ff;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(0, 245, 255, 0.05);
+    border-radius: 8px;
+    font-style: italic;
+    color: #b0b0b0;
+}
+.product-modal .modal-body-futuristic.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    align-content: start;
+}
+
+/* --- Kartu Produk --- */
+.product-item-card-futuristic {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item-card-futuristic:hover {
+    border-color: #00f5ff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+}
+
+/* --- Badge "Pilihan Terbaik" --- */
+.best-value-badge-futuristic {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ffd700;
+    color: #000;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    z-index: 1;
+}
+
+/* --- Ikon, Judul, Deskripsi, Harga --- */
+.product-icon-wrapper-futuristic {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-icon.premium-icon { color: #ffd700; }
+.product-icon.token-icon { color: #00f5ff; }
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    min-height: 2.5em; /* Ruang untuk 2 baris judul */
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Mendorong harga & tombol ke bawah */
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00f5ff;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Tombol Beli --- */
+.select-product-btn-futuristic {
+    background: linear-gradient(45deg, #00f5ff, #ff00ff);
+    color: #000;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: auto; /* Memastikan tombol selalu di bawah */
+    transition: all 0.3s ease;
+}
+
+.select-product-btn-futuristic:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+}
+
+/* --- Bagian Token Kustom --- */
+.custom-token-section-futuristic {
+    grid-column: 1 / -1; /* Mengambil lebar penuh grid */
+    border-top: 1px solid rgba(0, 245, 255, 0.2);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-token-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.custom-token-input-container input {
+    width: 100px;
+    text-align: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.custom-token-input-container span {
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+.custom-token-total-price {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.custom-token-total-price strong {
+    color: #00f5ff;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #00f5ff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Agar tidak mengganggu klik */
+    z-index: 99999;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+/* Gaya untuk cincin luar kursor */
+.custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(0, 245, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Agar tidak mengganggu klik */
+    z-index: 99999;
+    transition: width 0.4s, height 0.4s, border-color 0.4s, background-color 0.4s, transform 0.2s ease-out;
+}
+
+/* Efek saat kursor berada di atas link atau tombol */
+.custom-cursor-ring.hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 245, 255, 0.1);
+    border-color: rgba(0, 245, 255, 1);
+}
+
+.custom-cursor-dot.hover {
+    background-color: #ff00ff;
+}
+
+/* Menyembunyikan kursor kustom di perangkat sentuh (HP/Tablet) */
+@media (pointer: coarse) {
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+        display: none;
+    }
+    /* Mengembalikan kursor default di perangkat sentuh */
+    body, a, button {
+        cursor: auto !important;
+    }
+}
+
+html, body {
+    -ms-overflow-style: none;  /* IE dan Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, dan Opera */
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ini akan menyembunyikan scrollbar di Firefox dan IE/Edge */
+body, a, button {
+    -ms-overflow-style: none;  /* IE dan Edge */
+    scrollbar-width: none;  /* Firefox */
+    cursor: none !important;
+}
+.floating-elements {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar tidak mengganggu klik */
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-cube, .floating-sphere, .floating-ring, .floating-plus {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    will-change: transform; /* Optimasi performa animasi */
+}
+
+.floating-cube {
+    width: 40px;
+    height: 40px;
+    animation: float-rotate 15s ease-in-out infinite;
+}
+
+.floating-sphere {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: float-bounce 10s ease-in-out infinite;
+}
+
+.floating-ring {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    border-width: 2px;
+    animation: float-spin 20s linear infinite;
+}
+
+.floating-plus {
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    animation: float-spin 18s linear infinite reverse;
+}
+.floating-plus::before, .floating-plus::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 245, 255, 0.5);
+}
+.floating-plus::before {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+.floating-plus::after {
+    top: 50%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+
+/* Posisi Elemen Animasi */
+.cube-1 { top: 15%; left: 10%; animation-delay: 0s; }
+.cube-2 { top: 70%; right: 15%; animation-delay: 2s; }
+.cube-3 { bottom: 20%; left: 25%; animation-delay: 5s; }
+.cube-4 { top: 50%; left: 40%; animation-delay: 8s; }
+
+.sphere-1 { top: 40%; right: 25%; animation-delay: 1s; }
+.sphere-2 { bottom: 10%; right: 5%; animation-delay: 4s; }
+.sphere-3 { top: 80%; left: 5%; animation-delay: 7s; }
+
+.ring-1 { top: 20%; right: 5%; animation-delay: 1.5s; }
+.ring-2 { bottom: 40%; left: 15%; animation-delay: 6s; }
+.ring-3 { top: 5%; left: 50%; animation-delay: 9s; }
+
+.plus-1 { top: 5%; right: 40%; animation-delay: 3s; }
+.plus-2 { bottom: 5%; left: 45%; animation-delay: 10s; }
+.plus-3 { top: 60%; left: 80%; animation-delay: 0.5s; }
+
+
+/* --- Keyframes untuk Animasi --- */
+@keyframes header-border-glow {
+    from {
+        border-bottom-color: rgba(0, 245, 255, 0.2);
+    }
+    to {
+        border-bottom-color: rgba(0, 245, 255, 0.8);
+    }
+}
+
+@keyframes float-rotate {
+    0% { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0.7; }
+    50% { transform: translateY(-25px) rotate(180deg) scale(1.1); opacity: 1; }
+    100% { transform: translateY(0px) rotate(360deg) scale(1); opacity: 0.7; }
+}
+
+@keyframes float-bounce {
+    0% { transform: translateY(0px) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-20px) scale(1.05); opacity: 1; }
+    100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+}
+
+@keyframes float-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.new-header-container {
+    position: sticky; 
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 20, 0.8);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    animation: header-border-glow 4s infinite alternate;
+}
+
+/* --- Wrapper untuk Konten di Dalam Header --- */
+.new-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 1rem 2rem; 
+}
+
+/* --- Bagian Kiri: Logo --- */
+.new-header-left .new-logo-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+/* --- Bagian Tengah: Navigasi (Desktop) --- */
+.new-header-center {
+    display: flex;
+    gap: 2rem; 
+}
+
+.new-nav-link {
+    color: #e5e7eb; 
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    position: relative; 
+    transition: color 0.3s;
+}
+
+.new-nav-link span {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.new-nav-link:hover span {
+    color: #fff;
+    text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
+    animation: glitch-text 0.4s linear;
+}
+
+.new-nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff00ff, #00f5ff);
+    transition: all 0.4s ease-out;
+    transform: translateX(-50%);
+}
+
+.new-nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Bagian Kanan: Tombol Login (Desktop) --- */
+.new-header-right {
+    display: flex; /* Ditambahkan untuk konsistensi */
+}
+
+.new-header-right .new-login-btn {
+    background: #00f5ff;
+    color: #000;
+    border: 1px solid #00f5ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.new-header-right .new-login-btn:hover {
+    background: transparent;
+    color: #00f5ff;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+}
+
+/* --- Tombol Menu Mobile --- */
+.mobile-menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+    z-index: 1100;
+}
+
+.mobile-menu-toggle button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* --- Menu Dropdown Mobile --- */
+.mobile-menu-dropdown {
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah header */
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    animation: slide-down 0.5s ease-out;
+}
+
+.mobile-nav-link {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.mobile-login-btn {
+    background: #00f5ff;
+    color: #000;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: calc(100% - 4rem);
+    max-width: 300px;
+}
+
+
+/* --- Media Query untuk Responsivitas --- */
+@media (max-width: 768px) {
+    .new-header-center,
+    .new-header-right {
+        display: none; /* Sembunyikan navigasi dan login di mobile */
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Tampilkan tombol hamburger */
+    }
+    
+    .new-header-wrapper {
+        padding: 1rem; /* Mengurangi padding di layar kecil */
+    }
+}
+
+
+/* Keyframe untuk animasi */
+@keyframes header-border-glow {
+    from {
+        border-bottom-color: rgba(0, 245, 255, 0.2);
+    }
+    to {
+        border-bottom-color: rgba(0, 245, 255, 0.8);
+    }
+}
+
+@keyframes glitch-text {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.landing-header-v2 {
+    position: sticky; /* PERBAIKAN: Memastikan header tetap di atas saat scroll */
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 20, 0.8);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+/* --- Wrapper untuk Konten di Dalam Header --- */
+.header-content-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+/* --- Logo --- */
+.logo-container-header {
+    /* Logo akan secara alami berada di kiri */
+}
+
+.logo-text-header {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+/* --- Kontainer untuk Navigasi & Tombol Login --- */
+.landing-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Jarak antar item navigasi */
+    margin-left: auto; /* KUNCI PERBAIKAN: Mendorong grup ini ke kanan */
+}
+
+/* --- Link Navigasi --- */
+.nav-link {
+    color: #e5e7eb; /* PERBAIKAN: Warna dibuat lebih cerah */
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s, text-shadow 0.3s;
+    padding: 0.5rem;
+}
+
+.nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.7);
+}
+
+/* --- Tombol Login --- */
+.login-btn-header {
+    background: #00f5ff;
+    color: #000;
+    border: 1px solid #00f5ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login-btn-header:hover {
+    background: transparent;
+    color: #00f5ff;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+}
+.landing-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.logo-container-header {
+    flex: 1; 
+    flex-shrink: 0;
+}
+
+.logo-text-header {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.landing-nav {
+    display: flex;
+    justify-content: center; 
+    flex: 2; 
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.7);
+}
+
+.login-btn-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-btn-header {
+    background: transparent;
+    border: 1px solid #00f5ff;
+    color: #00f5ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login-btn-header:hover {
+    background: #00f5ff;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+}
+
+.landing-main-content {
+    flex-grow: 1;
+    /* padding-top tidak lagi diperlukan karena header tidak fixed */
+}
+
+/* --- Animasi Transisi Futuristik --- */
+.loading-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.loading-grid-bg {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: pan-grid 10s linear infinite;
+}
+
+.loading-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.loading-core {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #00f5ff 0%, rgba(0, 245, 255, 0) 70%);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: pulse-core 2s infinite ease-in-out;
+}
+
+.loading-text {
+    margin-top: 1.5rem;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00f5ff;
+    animation: flicker-text 1.5s infinite;
+}
+
+/* --- Pricing Section (PERBAIKAN) --- */
+.pricing-section {
+    padding: 5rem 2rem;
+    background-color: transparent; 
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #b0b0b0;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+.pricing-category-wrapper {
+    margin-bottom: 4rem; 
+}
+.pricing-category-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.pricing-category-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Orbitron', monospace;
+    color: #00f5ff;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 245, 255, 0.15);
+    border-color: #00f5ff;
+}
+
+.best-value-badge {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: #ffd700;
+    color: #000;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.pricing-icon-wrapper {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-icon.premium-icon { color: #ffd700; }
+.product-icon.token-icon { color: #00f5ff; }
+
+.pricing-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.pricing-description {
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    color: #00f5ff;
+    margin-bottom: 2rem;
+}
+
+.cta-button.primary {
+    width: 100%;
+}
+
+/* --- Keyframes untuk Animasi Transisi --- */
+@keyframes pan-grid {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+@keyframes pulse-core {
+    0%, 100% { transform: scale(0.9); box-shadow: 0 0 50px rgba(0, 245, 255, 0.3); }
+    50% { transform: scale(1.1); box-shadow: 0 0 80px rgba(0, 245, 255, 0.7); }
+}
+
+@keyframes flicker-text {
+    0%, 19%, 21%, 53%, 55%, 100% {
+        text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 40px #ff00ff, 0 0 70px #ff00ff;
+        opacity: 1;
+    }
+    20%, 54% {
+        text-shadow: none;
+        opacity: 0.7;
+    }
+}
+
+.audio-recorder-futuristic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(0,0,0,0.2);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.visualizer-canvas-futuristic {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.recorder-button-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recorder-btn-futuristic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(145deg, #00c6ff, #0072ff);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.5), inset 0 2px 2px rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.recorder-btn-futuristic:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 198, 255, 0.7), inset 0 2px 2px rgba(255,255,255,0.2);
+}
+
+.recorder-btn-futuristic:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.recorder-btn-futuristic.recording {
+    background: linear-gradient(145deg, #ff4d4d, #f00);
+    animation: pulse-recording 1.5s infinite;
+}
+
+@keyframes pulse-recording {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 77, 77, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+}
+
+.recorder-status-text {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    font-weight: 500;
+    text-align: center;
+}
+
+.interview-page-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.modal-overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.modal-header-container {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-title-container {
+    margin: 0;
+}
+
+.modal-body-container {
+    padding: 15px;
+}
+
+.modal-actions-container {
+    padding: 15px;
+    text-align: right;
+}
+
+.futuristic-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.futuristic-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.futuristic-button.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.futuristic-button.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.futuristic-button.large {
+    font-size: 1.2em;
+}
+
+.start-button-container {
+    margin-top: 20px;
+}
+
+.interview-container {
+    margin-top: 20px;
+}
+
+.interview-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.interview-title-container {
+    font-size: 1.5em;
+}
+
+.interview-context-container {
+    margin-top: 20px;
+}
+
+.question-box-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.typing-indicator-container {
+    display: flex;
+    align-items: center;
+}
+
+.typing-indicator-container span {
+    width: 8px;
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.answer-box-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.question-counter-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 10px;
+    background-color: #4caf50; /* Ganti dengan warna yang diinginkan */
+    transition: width 0.5s ease;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    height: 10px;
+    background-color: #4caf50; /* Ganti dengan warna yang diinginkan */
+    transition: width 0.5s ease;
+}
+.form-group-futuristic .scholarship-name-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.interview-page-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- MODAL (OVERLAY & CONTENT) --- */
+
+/* --- KONTEN HALAMAN INTERVIEW --- */
+.interview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.interview-title-futuristic { font-family: 'Orbitron', monospace; font-size: 1.8rem; color: #fff; }
+.interview-context-box { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 2rem; }
+.interview-context-box p { margin: 0 0 0.5rem 0; color: #a0a0a0; font-size: 0.9rem;}
+.interview-context-box p:last-child { margin-bottom: 0; }
+.interview-context-box strong { color: #e0e0e0; }
+.interview-context-box .text-success { color: #22c55e; }
+.interview-context-box .text-warning { color: #facc15; }
+
+.question-box-futuristic { background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1)); border: 1px solid #00f5ff; border-radius: 15px; padding: 1.5rem 2rem; margin-bottom: 2rem; min-height: 120px; display: flex; flex-direction: column; justify-content: center; }
+.interviewer-label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; text-transform: uppercase; color: #00f5ff; margin-bottom: 0.75rem; font-weight: 600; }
+.question-text { font-size: 1.3rem; line-height: 1.6; color: #fff; margin: 0; }
+.typing-indicator-futuristic span { width: 10px; height: 10px; background-color: #00f5ff; border-radius: 50%; animation: typing-bounce 1.2s infinite ease-in-out; }
+.typing-indicator-futuristic span:nth-child(2) { animation-delay: -1.0s; }
+.typing-indicator-futuristic span:nth-child(3) { animation-delay: -0.8s; }
+@keyframes typing-bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
+
+.start-button-container { text-align: center; margin: 1rem 0; }
+.answer-box-futuristic { background: rgba(255,255,255,0.05); padding: 1rem 1.5rem; border-radius: 12px; margin-top: 2rem; color: #a0a0a0; font-style: italic; }
+.answer-box-futuristic strong { color: #e0e0e0; }
+
+.question-counter-futuristic { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.question-counter-futuristic p { text-align: center; color: #888; margin: 0; }
+.progress-bar-container { width: 100%; height: 8px; background-color: rgba(255,255,255,0.1); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; }
+.progress-bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #00f5ff, #ff00ff); border-radius: 8px; transition: width 0.5s ease-in-out; }
+
+.modal-overlay-futuristic {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 10, 20, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    padding: 20px;
+}
+
+/* Kunci utama: Menggunakan Flexbox untuk menata layout modal */
+.modal-content-futuristic {
+    display: flex;
+    flex-direction: column; /* Menumpuk item secara vertikal: header, body, footer */
+    max-height: calc(100vh - 40px); /* Batasi tinggi modal agar tidak melebihi layar */
+    width: 100%;
+    max-width: 700px;
+    background: rgba(20, 20, 35, 0.95);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Penting: menyembunyikan overflow pada container utama */
+}
+
+/* Header tidak akan membesar atau menyusut */
+.modal-header-futuristic {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+    flex-shrink: 0; 
+}
+
+/* Bagian body akan mengisi sisa ruang dan BISA DI-SCROLL */
+.modal-body-futuristic {
+    padding: 1.5rem;
+    flex-grow: 1; /* Mengambil sisa ruang yang tersedia di antara header dan footer */
+}
+
+/* Footer (tempat tombol) tidak akan membesar atau menyusut */
+.modal-actions {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(0, 245, 255, 0.2);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.generator-container-futuristic.interview-page {
+    max-width: 800px; /* Lebar optimal untuk simulasi interview */
+}
+
+/* Modal Awal (Nama & Opsi) */
+.modal-content-futuristic {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* Batasi tinggi modal agar tidak melebihi layar */
+    overflow: hidden; /* Sembunyikan overflow di container utama */
+}
+.modal-subtitle-futuristic {
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+.modal-title-futuristic.danger {
+    color: #ff4d4d;
+}
+
+/* Tampilan Utama Interview */
+.interview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.interview-title-futuristic {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    color: #fff;
+}
+.interview-context-box {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+.interview-context-box p {
+    margin: 0 0 0.5rem 0;
+    color: #a0a0a0;
+}
+.interview-context-box strong {
+    color: #e0e0e0;
+}
+.interview-context-box .text-success { color: #22c55e; }
+.interview-context-box .text-warning { color: #facc15; }
+
+/* Kotak Pertanyaan */
+.question-box-futuristic {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border: 1px solid #00f5ff;
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.interviewer-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #00f5ff;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+.question-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+}
+
+/* Indikator Mengetik */
+.typing-indicator-futuristic { display: flex; align-items: flex-end; gap: 4px; }
+.typing-indicator-futuristic span {
+    width: 10px; height: 10px; background-color: #00f5ff; border-radius: 50%;
+    animation: typing-bounce 1.2s infinite ease-in-out;
+}
+.typing-indicator-futuristic span:nth-child(2) { animation-delay: -1.0s; }
+.typing-indicator-futuristic span:nth-child(3) { animation-delay: -0.8s; }
+@keyframes typing-bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
+
+.start-button-container { text-align: center; }
+.answer-box-futuristic {
+    background: rgba(255,255,255,0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    color: #a0a0a0;
+    font-style: italic;
+}
+.answer-box-futuristic strong { color: #e0e0e0; }
+
+/* Penghitung Pertanyaan & Progress Bar */
+.question-counter-futuristic {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.question-counter-futuristic p { text-align: center; color: #888; margin: 0; }
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00f5ff, #ff00ff);
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* Kolom utama lebih besar */
+    gap: 2rem;
+}
+@media (max-width: 1200px) {
+    .admin-grid { grid-template-columns: 1fr; }
+}
+
+.admin-main-content, .admin-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.admin-card-futuristic {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.admin-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.admin-card-body.no-padding {
+    padding: 0;
+}
+
+/* Tombol toggle Statistik */
+.segmented-control.small {
+    border-radius: 8px;
+}
+.segmented-control.small button {
+    padding: 0.5rem 0.8rem;
+}
+
+/* Statistik */
+.chart-container-futuristic {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+.futuristic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.futuristic-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+.list-badge {
+    background: rgba(0, 245, 255, 0.2);
+    color: #00f5ff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+/* Tabel User */
+.status-badge {
+    padding: 0.3em 0.7em;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #000;
+}
+.status-badge.premium { background-color: #ffd700; }
+.status-badge.basic { background-color: #555; color: #e0e0e0; }
+.action-buttons { display: flex; gap: 0.5rem; justify-content: center; }
+
+/* Form */
+.futuristic-select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300F5FF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: .65em auto;
+}
+.futuristic-select:focus { outline: none; border-color: #ff00ff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); }
+.spinner { animation: spin 1.5s linear infinite; }
+.team-section-futuristic {
+    width: 100%;
+    padding: 4rem 2rem;
+    background-color: rgba(10, 10, 20, 0.5); /* Latar belakang yang sedikit berbeda */
+    position: relative;
+    z-index: 5;
+}
+
+.section-heading-futuristic {
+    font-family: 'Orbitron', monospace;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+}
+
+.team-grid-futuristic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member-card-futuristic {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.team-member-card-futuristic:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 245, 255, 0.15);
+    border-color: #00f5ff;
+}
+
+.team-member-photo-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    border: 4px solid #00f5ff;
+    padding: 5px;
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
+    transition: all 0.3s ease;
+}
+.team-member-card-futuristic:hover .team-member-photo-wrapper {
+    transform: scale(1.05);
+}
+.team-member-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-member-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.team-member-title {
+    font-size: 0.9rem;
+    color: #00f5ff;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.team-member-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+.team-member-ig:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* --- Bagian Footer --- */
+.footer-futuristic {
+    background: #0a0a14;
+    color: #a0a0b0;
+    padding: 3rem 2rem 1.5rem;
+    border-top: 1px solid rgba(0, 245, 255, 0.2);
+    position: relative;
+    z-index: 5;
+    width: 100%;
+}
+
+.footer-content-futuristic {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+}
+
+.footer-about {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.footer-about h4, .footer-social h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.footer-about p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.social-links a {
+    color: #a0a0b0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: #00f5ff;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.exchange-generator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-container, .result-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.form-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.input-group:last-child {
+    margin-bottom: 0;
+}
+.input-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+.input-group input[type="text"],
+.input-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-group input[type="text"]:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.btn-generate {
+  width: 100%;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+.btn-generate:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+.btn-generate:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* Result Section */
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+}
+.result-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+}
+.result-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+.result-actions button {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.result-actions button:hover {
+    background-color: #e5e7eb;
+}
+.result-actions button.btn-reset {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-color: #fca5a5;
+}
+.result-actions button.btn-reset:hover {
+    background-color: #fca5a5;
+}
+
+.result-content {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    line-height: 1.7;
+    color: #374151;
+}
+.result-content p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.result-content p:last-child {
+    margin-bottom: 0;
+}
+.result-content strong {
+    color: #1f2937;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.result-actions-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.futuristic-button.danger {
+    background: rgba(255, 77, 77, 0.2);
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.futuristic-button.danger:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+.linkedin-optimizer-content {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+/* Progress Indicator */
+.futuristic-progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+}
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #888;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: color 0.4s ease;
+    width: 80px; /* Lebar untuk teks */
+}
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+.progress-step.active { color: #00f5ff; }
+.progress-step.active .step-circle {
+    background: #00f5ff;
+    color: #000;
+    border-color: #00f5ff;
+}
+.progress-connector {
+    flex-grow: 1;
+    height: 2px;
+    background: #444;
+    margin-top: 20px; /* Sejajarkan dengan tengah lingkaran */
+    transition: background-color 0.4s ease;
+}
+.progress-connector.active { background-color: #00f5ff; }
+
+.step-content-box {
+    background: rgba(0,0,0,0.2);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.step-title-futuristic {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.linkedin-type-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.linkedin-type-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+.linkedin-type-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00f5ff;
+}
+.linkedin-type-btn.active {
+    background: rgba(0, 245, 255, 0.1);
+    border-color: #00f5ff;
+    color: #00f5ff;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+}
+.linkedin-type-btn .check-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #00f5ff;
+}
+
+.input-hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Navigasi */
+.navigation-buttons-futuristic {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.navigation-buttons-futuristic button {
+    min-width: 150px;
+}
+
+.bio-hybrid-container {
+    padding: 2rem;
+}
+
+/* Step Indicator */
+.step-indicator-futuristic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #555;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+.step-item span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333;
+    color: #777;
+    border: 2px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+.step-item.active {
+    color: #00f5ff;
+}
+.step-item.active span {
+    background: #00f5ff;
+    color: #000;
+    border-color: #00f5ff;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+}
+.step-connector {
+    flex-grow: 1;
+    height: 2px;
+    background: #444;
+    margin: 0 1rem;
+    margin-bottom: 2rem; /* Sejajarkan dengan teks */
+    max-width: 150px;
+}
+
+/* Upload Step */
+.futuristic-upload-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+.futuristic-file-input.large {
+    min-height: 200px;
+    flex-direction: column;
+    gap: 1rem;
+    border-width: 2px;
+}
+.image-preview-futuristic {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Form Step */
+.review-box-futuristic {
+    background: rgba(0, 245, 255, 0.05);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-left: 4px solid #00f5ff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.review-box-futuristic h4 {
+    color: #00f5ff;
+    margin: 0 0 0.5rem 0;
+}
+.review-box-futuristic p {
+    color: #b0b0b0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.dynamic-input-group-futuristic {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.dynamic-input-group-futuristic .futuristic-input { flex-grow: 1; }
+.futuristic-button.icon-only {
+    padding: 0;
+    width: 52px;
+    flex-shrink: 0;
+}
+.futuristic-button.icon-only.remove {
+    background: rgba(255, 77, 77, 0.2);
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+}
+.futuristic-button.icon-only.remove:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+.futuristic-input.dynamic {
+    margin-top: 0.75rem;
+}
+.spinner {
+    animation: spin 1.5s linear infinite;
+}
+
+/* Result Step */
+.final-bio-result-box {
+    position: relative;
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgb(255, 255, 255);
+}
+.final-bio-result-box pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #e0e0e0;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+}
+.btn-copy-futuristic {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-copy-futuristic:hover {
+    background: #00f5ff;
+    color: #000;
+}
+
+
+.choice-grid-futuristic {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.choice-box-futuristic {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.choice-box-futuristic:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 245, 255, 0.7);
+}
+
+.choice-box-futuristic.selected {
+    background: #00f5ff;
+    border-color: #00f5ff;
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+}
+
+.choice-box-futuristic.selected .lucide {
+    color: #000;
+}
+
+/* Kunci untuk notifikasi error/warning yang lebih baik */
+.locked-feature-notice.danger {
+    background: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    border: 1px solid rgba(255, 77, 77, 0.3);
+}
+
+.generator-container-futuristic {
+  padding: 1.5rem;
+}
+
+/* Header Komponen */
+.generator-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #00f5ff;
+}
+
+.generator-subtitle-futuristic {
+  color: #b0b0b0;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+  line-height: 1.6;
+}
+
+/* Form Wrapper */
+.generator-form-futuristic {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Grid untuk menata input */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Grup Form Tunggal (Label + Input) */
+.form-group-futuristic {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-futuristic label {
+  font-weight: 500;
+  color: #00f5ff;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Input Field */
+.futuristic-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.futuristic-input:focus {
+  outline: none;
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+/* Memberi jarak antar input yang di-map (VIA & Career) */
+.form-group-futuristic .futuristic-input + .futuristic-input {
+    margin-top: 0.75rem;
+}
+
+/* Aksi Tombol */
+.generator-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center; /* Tombol di tengah */
+}
+
+/* Anda bisa menggunakan kembali gaya .futuristic-button dari file CSS utama Anda */
+.futuristic-button.large {
+    width: 100%;
+    max-width: 400px; /* Batasi lebar tombol agar tidak terlalu besar */
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.admin-page-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.admin-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-table-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.table-responsive-futuristic {
+    width: 100%;
+    overflow-x: auto; /* Memastikan tabel bisa di-scroll horizontal di layar kecil */
+}
+
+.futuristic-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e0e0e0;
+}
+
+.futuristic-table th, .futuristic-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.futuristic-table thead th {
+    font-weight: 600;
+    color: #00f5ff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    background: rgba(0, 245, 255, 0.1);
+}
+
+.futuristic-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.futuristic-table td {
+    font-size: 0.9rem;
+}
+
+.futuristic-table .text-center {
+    text-align: center;
+}
+
+.futuristic-table .text-nowrap {
+    white-space: nowrap;
+}
+
+.futuristic-table .cell-email {
+    font-weight: 500;
+    color: #fff;
+}
+
+.generator-container-futuristic.initial-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+}
+
+.upload-area-futuristic {
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem 0;
+}
+
+/* Tampilan Utama Tracker */
+.tracker-header-futuristic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tracker-title-futuristic {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.points-display-futuristic {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(45deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+    color: #00f5ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.week-container-futuristic {
+    margin-bottom: 2.5rem;
+}
+
+.week-header-futuristic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.week-title-futuristic {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.activity-list-futuristic {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.empty-week-futuristic {
+    padding: 2rem;
+    text-align: center;
+    color: #888;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    border: 1px dashed rgba(255,255,255,0.2);
+}
+
+/* Item Aktivitas */
+.activity-item-futuristic {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #00f5ff;
+    transition: all 0.3s ease;
+}
+.activity-item-futuristic.completed {
+    border-left-color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+}
+.activity-item-futuristic:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.activity-main {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    gap: 1rem;
+}
+.activity-check { color: #888; transition: color 0.3s ease; }
+.activity-check:hover { color: #00f5ff; }
+.check-icon.completed { color: #22c55e; }
+
+.activity-summary {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.activity-title {
+    font-weight: 600;
+    color: #e0e0e0;
+}
+.activity-item-futuristic.completed .activity-title {
+    text-decoration: line-through;
+    color: #888;
+}
+.activity-time {
+    font-size: 0.85rem;
+    color: #888;
+}
+.activity-expander { color: #888; }
+
+.activity-details {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+.activity-details p { margin: 0 0 0.5rem 0; }
+.activity-details strong { color: #e0e0e0; }
+
+.activity-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+}
+.action-btn {
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: #b0b0b0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+.action-btn.gcal:hover { background-color: #00f5ff; color: #000; }
+.action-btn.delete:hover { background-color: #ff4d4d; color: #fff; }
+
+/* Modal Form */
+.futuristic-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.results-container-futuristic .result-card-futuristic.plan-card {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+.plan-card-body .markdown-output {
+    color: #b0b0b0; /* Warna teks default yang lembut */
+    line-height: 1.7;
+}
+
+/* --- Headers (Judul) --- */
+.plan-card-body .markdown-output h1,
+.plan-card-body .markdown-output h2,
+.plan-card-body .markdown-output h3,
+.plan-card-body .markdown-output h4 {
+    color: #fff;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+}
+
+.plan-card-body .markdown-output h1 { 
+    font-size: 1.6rem; 
+    border-bottom: 1px solid rgba(0,245,255,0.3); 
+    padding-bottom: 0.4em;
+}
+.plan-card-body .markdown-output h2 { 
+    font-size: 1.4rem; 
+    color: #00f5ff;
+}
+.plan-card-body .markdown-output h3 { 
+    font-size: 1.2rem; 
+}
+
+/* --- Paragraf & Teks --- */
+.plan-card-body .markdown-output p {
+    margin-bottom: 1em;
+}
+
+.plan-card-body .markdown-output strong,
+.plan-card-body .markdown-output b {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.plan-card-body .markdown-output em,
+.plan-card-body .markdown-output i {
+    color: #00f5ff;
+    font-style: italic;
+}
+
+/* --- Daftar (Lists) --- */
+.plan-card-body .markdown-output ul,
+.plan-card-body .markdown-output ol {
+    padding-left: 25px;
+    margin-bottom: 1em;
+}
+
+.plan-card-body .markdown-output li {
+    margin-bottom: 0.6em;
+    padding-left: 10px;
+}
+
+/* --- Tabel --- */
+.plan-card-body .markdown-output table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+    background: rgba(0,0,0,0.2);
+}
+
+.plan-card-body .markdown-output th,
+.plan-card-body .markdown-output td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1rem;
+    text-align: left;
+}
+
+.plan-card-body .markdown-output th {
+    background-color: rgba(0, 245, 255, 0.1);
+    color: #00f5ff;
+    font-weight: 600;
+}
+
+/* --- Blockquote --- */
+.plan-card-body .markdown-output blockquote {
+    border-left: 4px solid #00f5ff;
+    padding-left: 1.5em;
+    margin: 1.5em 0;
+    color: #b0b0b0;
+    font-style: italic;
+    background: rgba(0, 245, 255, 0.05);
+}
+.plan-card-body .markdown-output h1,
+.plan-card-body .markdown-output h2,
+.plan-card-body .markdown-output h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.7em;
+    color: #fff;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.plan-card-body .markdown-output h1 { font-size: 1.6rem; }
+.plan-card-body .markdown-output h2 { font-size: 1.4rem; border-color: rgba(0, 245, 255, 0.5); }
+.plan-card-body .markdown-output h3 { font-size: 1.2rem; color: #00f5ff; border: none; }
+
+.plan-card-body .markdown-output p {
+    line-height: 1.7;
+    color: #b0b0b0;
+    margin-bottom: 1em;
+}
+
+.plan-card-body .markdown-output ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.plan-card-body .markdown-output li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 0.8em;
+    color: #b0b0b0;
+}
+
+.plan-card-body .markdown-output li::before {
+    content: '⚡️'; /* Emoji atau ikon sebagai bullet point */
+    position: absolute;
+    left: 0;
+    color: #00f5ff;
+}
+
+.plan-card-body .markdown-output strong {
+    color: #e0e0e0;
+}
+.token-cost-notice {
+    font-size: 0.9rem;
+    color: #ffd700;
+    margin-top: 1rem;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.generator-form-futuristic.initial-setup {
+    margin-bottom: 2rem;
+}
+
+.form-section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.segmented-control {
+    display: flex;
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.segmented-control button {
+    flex: 1;
+    padding: 0.8rem;
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.segmented-control button.active {
+    background: #00f5ff;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+}
+
+.futuristic-file-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed rgba(0, 245, 255, 0.4);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: #b0b0b0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.futuristic-file-input:hover {
+    border-color: #00f5ff;
+    color: #fff;
+}
+.futuristic-file-input span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.futuristic-file-input input[type="file"] {
+    display: none;
+}
+
+.futuristic-button.large {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.locked-data-info {
+    background: rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.locked-data-info p { margin: 0; font-size: 1rem; color: #e0e0e0; }
+.locked-data-info strong { color: #00f5ff; }
+.locked-data-info small { color: #888; margin-top: 0.5rem; display: block; }
+
+
+.results-container-futuristic.with-actions .results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.futuristic-button.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.futuristic-button.x-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+}
+
+.result-card-futuristic.plan-card {
+    border-left: none; /* Hapus border kiri agar tidak bentrok */
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #e0e0e0;
+}
+.plan-card-body {
+    padding: 1.25rem;
+}
+.plan-card-footer {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+    color: #888;
+    background: rgba(0,0,0,0.2);
+    margin-top: auto; /* Mendorong footer ke bawah */
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.generator-actions.bottom-actions {
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.locked-feature-notice {
+    padding: 2rem;
+    text-align: center;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 15px;
+    color: #ffd700;
+    font-size: 1.1rem;
+}
+.loading-state-container {
+    padding: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* -- Perbaikan untuk tampilan markdown -- */
+.plan-card-body h1, .plan-card-body h2, .plan-card-body h3, .plan-card-body h4 {
+    color: #fff;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+.plan-card-body h1 { font-size: 1.5rem; border-bottom: 1px solid rgba(0,245,255,0.3); padding-bottom: 0.3em; }
+.plan-card-body h2 { font-size: 1.3rem; color: #fff;}
+.plan-card-body h3 { font-size: 1.1rem; color: #00f5ff; }
+.plan-card-body p { margin-bottom: 0.8em; line-height: 1.7; color: #b0b0b0;}
+.plan-card-body ul, .plan-card-body ol { padding-left: 20px; }
+.plan-card-body li { margin-bottom: 0.5em; }
+.plan-card-body strong { color: #e0e0e0; }
+.plan-card-body blockquote {
+    border-left: 3px solid #00f5ff;
+    padding-left: 1em;
+    margin-left: 0;
+    color: #b0b0b0;
+    font-style: italic;
+}
+
+.futuristic-toggle.section-header {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.futuristic-toggle.section-header .lucide {
+    color: #00f5ff;
+}
+
+.advanced-box.grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.futuristic-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.futuristic-input:focus {
+  outline: none;
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.result-card-futuristic p[style*="pre-wrap"] {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* --- BAGIAN 1: Essai Generator --- */
+.generator-container-futuristic {
+  padding: 1.5rem;
+}
+
+.generator-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #00f5ff;
+}
+
+.generator-title-futuristic {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: white; /* Mengubah warna teks menjadi putih */
+}
+
+.generator-subtitle-futuristic {
+  color: #b0b0b0;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+  line-height: 1.6;
+}
+
+.generator-form-futuristic {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.334);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group-futuristic {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-futuristic label {
+  font-weight: 500;
+  color: #00f5ff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.futuristic-select, .futuristic-textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.futuristic-select:focus, .futuristic-textarea:focus {
+  outline: none;
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.futuristic-select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+/* === BAGIAN YANG DIPERBAIKI: OPSI PREMIUM & TOGGLE SWITCH === */
+.premium-options-futuristic {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.futuristic-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.futuristic-toggle input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.futuristic-toggle label {
+  cursor: pointer;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 65px; /* Memberi ruang untuk switch */
+  line-height: 28px; /* Menyelaraskan teks secara vertikal */
+  user-select: none;
+}
+
+/* Bagian belakang switch (track) */
+.futuristic-toggle label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 28px;
+  background-color: #333;
+  border-radius: 100px;
+  transition: background-color 0.3s;
+}
+
+/* Tombol bulat di dalam switch (knob) */
+.futuristic-toggle label::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 90px;
+  transition: left 0.3s ease;
+}
+
+/* Saat checkbox di-klik, ubah warna track dan posisi knob */
+.futuristic-toggle input:checked + label::before {
+  background-color: #00f5ff;
+}
+
+.futuristic-toggle input:checked + label::after {
+  left: 25px; /* Posisi baru (50px - 22px - 3px) */
+}
+
+.advanced-box {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+/* === AKHIR BAGIAN PERBAIKAN === */
+
+
+/* Tombol */
+.generator-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.futuristic-button { /* Gaya dasar untuk semua tombol di sini */
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.futuristic-button.primary {
+  flex-grow: 1;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  color: #000;
+  border: none;
+}
+.futuristic-button.secondary {
+  background: transparent;
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+}
+
+/* Hasil */
+.results-container-futuristic {
+  margin-top: 2.5rem;
+}
+.results-container-futuristic h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.result-card-futuristic {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #00f5ff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: #00f5ff;
+  margin-bottom: 0.75rem;
+}
+.result-card-futuristic p {
+  color: #e0e0e0;
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* --- BAGIAN 2: GLOBAL STYLES & SCROLLBAR --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Exo 2', sans-serif; background: #0a0a0a; color: #ffffff; overflow-x: hidden; }
+.app-container.futuristic { min-height: 100vh; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); position: relative; }
+
+
+/* --- BAGIAN 3: FUTURISTIC TOPBAR & MODAL STYLES --- */
+.topbar-container-futuristic {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  gap: 1.5rem;
+}
+
+.logo-text-futuristic {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: auto;
+}
+
+.topbar-nav-items-futuristic { display: flex; gap: 1rem; }
+.topbar-action-btn-futuristic { background: transparent; border: 1px solid; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+.topbar-action-btn-futuristic.premium-btn { color: #ffd700; border-color: #ffd700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+.topbar-action-btn-futuristic.premium-btn:hover { background: #ffd700; color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+.topbar-action-btn-futuristic.token-btn { color: #00f5ff; border-color: #00f5ff; }
+.topbar-action-btn-futuristic.token-btn:hover { background: #00f5ff; color: #000; box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); }
+
+.topbar-right-futuristic { display: flex; align-items: center; gap: 1rem; }
+.leaderboard-btn-futuristic, .logout-btn-futuristic { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }
+.leaderboard-btn-futuristic:hover { background: #00f5ff; color: #000; }
+.logout-btn-futuristic:hover { background: #ff4d4d; color: #fff; }
+
+.user-info-futuristic { text-align: right; }
+.user-email-futuristic { font-weight: 500; color: #e0e0e0; display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+.user-status-badge-futuristic { display: inline-flex; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; margin-top: 4px; gap: 0.3rem; align-items: center; }
+.user-status-badge-futuristic.premium { background: #ffd700; color: #000; }
+.user-status-badge-futuristic.basic { background: rgba(255, 255, 255, 0.2); color: #e0e0e0; }
+
+
+/* --- BAGIAN 4: FUTURISTIC MODE SELECTOR STYLES --- */
+.mode-selector-container-futuristic { padding: clamp(1rem, 3vw, 2rem); max-width: 1200px; margin: 0 auto; }
+.welcome-text-futuristic { font-family: 'Orbitron', monospace; text-align: center; font-size: clamp(1.4rem, 4.5vw, 2.5rem); font-weight: 700; background: linear-gradient(45deg, #00f5ff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+.welcome-subtitle-futuristic { text-align: center; font-size: clamp(0.9rem, 2.6vw, 1.1rem); color: #b0b0b0; margin-bottom: clamp(1.25rem, 4vw, 3rem); }
+.card-grid-futuristic { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(0.8rem, 2vw, 1.5rem); }
+.field-card-futuristic { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; transition: all 0.3s ease; cursor: pointer; }
+.field-card-futuristic:hover { transform: translateY(-5px); border-color: #00f5ff; background: rgba(0, 245, 255, 0.05); box-shadow: 0 10px 30px rgba(0, 245, 255, 0.1); }
+.field-card-icon { flex-shrink: 0; color: #00f5ff; background: rgba(0, 245, 255, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.field-card-content h3 { font-size: 1.3rem; font-weight: 600; color: #fff; margin: 0 0 0.5rem 0; }
+.field-card-content p { font-size: 0.9rem; color: #b0b0b0; line-height: 1.5; margin: 0; }
+.section-header-futuristic { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+.back-btn-futuristic { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; transition: all 0.3s ease; }
+.back-btn-futuristic:hover { background: #00f5ff; border-color: #00f5ff; color: #000; }
+.section-title-futuristic { font-size: 1.8rem; font-weight: 600; color: #fff; padding-bottom: 0.5rem; border-bottom: 2px solid #00f5ff; }
+.mode-card-futuristic { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 1.5rem; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; height: 100%; }
+.mode-card-futuristic:hover:not(.disabled) { transform: translateY(-5px); border-color: #00f5ff; }
+.mode-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; }
+.mode-card-header h4 { font-size: 1.1rem; font-weight: 600; color: #e0e0e0; margin: 0; }
+.mode-card-futuristic p { font-size: 0.9rem; color: #a0a0a0; line-height: 1.6; flex-grow: 1; margin: 0; }
+.badge-premium-futuristic, .badge-free-futuristic { font-size: 0.7rem; font-weight: bold; padding: 0.3em 0.7em; border-radius: 5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; flex-shrink: 0; }
+.badge-premium-futuristic { background: #ffd700; color: #000; }
+.badge-free-futuristic { background: rgba(0, 245, 255, 0.2); color: #00f5ff; }
+.mode-card-futuristic.disabled { opacity: 0.5; cursor: not-allowed; border-color: rgba(255, 255, 255, 0.1); }
+.global-premium-notice-futuristic { margin-top: 3rem; padding: 1.5rem; text-align: center; background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 0, 255, 0.1)); border: 1px solid #ffd700; border-radius: 15px; }
+.global-premium-notice-futuristic p { color: #e0e0e0; margin: 0 0 1rem 0; }
+.upgrade-btn-futuristic { background: #ffd700; color: #000; padding: 0.6rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; }
+.upgrade-btn-futuristic:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+
+
+/* --- BAGIAN 5: FUTURISTIC LEADERBOARD MODAL STYLES --- */
+.modal-overlay-futuristic { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 10, 20, 0.5); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 1050; padding: 20px; animation: fadeIn 0.3s ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-content-futuristic { background: rgba(20, 20, 35, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(0, 245, 255, 0.3); border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); animation: scaleUp 0.4s ease-out; }
+@keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-content-futuristic.leaderboard-modal { max-width: 600px; width: 100%; display: flex; flex-direction: column; }
+.modal-header-futuristic { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(0, 245, 255, 0.2); }
+.modal-title-futuristic { font-size: 1.5rem; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 0.75rem; }
+.btn-close-futuristic { background: transparent; border: none; color: #888; cursor: pointer; transition: color 0.3s ease; }
+.btn-close-futuristic:hover { color: #fff; }
+.leaderboard-subtitle { text-align: center; color: #b0b0b0; padding: 1rem 1.5rem; font-size: 0.95rem; }
+.leaderboard-body { padding: 0 1rem 1rem; max-height: 65vh; overflow-y: auto; }
+.leaderboard-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.leaderboard-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; transition: all 0.3s ease; }
+.leaderboard-item:hover { background: rgba(0, 245, 255, 0.08); border-color: rgba(0, 245, 255, 0.5); }
+.leaderboard-item.rank-1 { border-left: 4px solid #ffd700; }
+.leaderboard-item.rank-2 { border-left: 4px solid #c0c0c0; }
+.leaderboard-item.rank-3 { border-left: 4px solid #cd7f32; }
+.rank-number { font-size: 1.5rem; font-weight: 700; color: #fff; width: 50px; text-align: center; flex-shrink: 0; }
+.user-details { flex-grow: 1; display: flex; flex-direction: column; }
+.username { font-weight: 600; color: #e0e0e0; display: flex; align-items: center; gap: 0.5rem; }
+.premium-icon { color: #ffd700; }
+.email { font-size: 0.8rem; color: #888; }
+.points { font-weight: 700; font-size: 1.1rem; color: #00f5ff; flex-shrink: 0; }
+.loader-container, .error-container { padding: 3rem; text-align: center; color: #b0b0b0; display: flex; justify-content: center; align-items: center; }
+.css-loader-futuristic { border: 4px solid rgba(255, 255, 255, 0.2); border-top: 4px solid #00f5ff; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+/* Global Styles */
+
+.modal-content-futuristic {
+  background: rgba(20, 20, 35, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* Batas tinggi modal */
+}
+
+/* Header Modal */
+.modal-header-futuristic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  flex-shrink: 0;
+}
+.modal-title-futuristic {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.btn-close-futuristic {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+.btn-close-futuristic:hover { color: #fff; }
+
+/* Body Modal (tempat kartu produk) */
+.modal-body-futuristic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+   /* Izinkan scroll jika konten banyak */
+}
+
+/* --- KARTU PRODUK DI DALAM MODAL --- */
+.product-item-card-futuristic {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.product-item-card-futuristic:hover {
+  border-color: #00f5ff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+}
+
+.best-value-badge-futuristic { 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  background: #ffd700; 
+  color: #000; 
+  padding: 0.3rem 0.8rem; 
+  font-size: 0.7rem; 
+  font-weight: bold; 
+  border-top-right-radius: 15px; 
+  border-bottom-left-radius: 15px; 
+  z-index: 1;
+}
+
+.product-icon-wrapper-futuristic { 
+  font-size: 2.5rem; 
+  margin-bottom: 1rem; 
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-icon.premium-icon { color: #ffd700; }
+.product-icon.token-icon { color: #00f5ff; }
+
+.product-item-card-futuristic h6 { 
+  font-size: 1.2rem; 
+  margin-bottom: 0.5rem; 
+  color: #fff; 
+  min-height: 2.5em; /* Ruang untuk 2 baris judul */
+}
+.product-item-card-futuristic .description { 
+  font-size: 0.9rem; 
+  color: #b0b0b0; 
+  margin-bottom: 1rem; 
+  flex-grow: 1;
+}
+.product-item-card-futuristic .price { 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+  color: #00f5ff; 
+  margin-bottom: 1.5rem; 
+}
+
+.select-product-btn-futuristic { 
+  background: linear-gradient(45deg, #00f5ff, #ff00ff); 
+  color: #000; 
+  border: none; 
+  padding: 0.75rem; 
+  border-radius: 10px; 
+  font-weight: 700; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 0.5rem; 
+  margin-top: auto; /* Mendorong tombol ke bawah */
+  transition: all 0.3s ease;
+}
+.select-product-btn-futuristic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+}
+
+/* --- BAGIAN TOKEN KUSTOM --- */
+.custom-token-section-futuristic { 
+  grid-column: 1 / -1; 
+  border-top: 1px solid rgba(0, 245, 255, 0.2); 
+  padding: 1.5rem; 
+  margin-top: 1rem; 
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+.custom-token-section-futuristic h6 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.custom-token-input-container { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 1rem; 
+  margin: 1rem 0; 
+}
+.custom-token-input-container input { 
+  width: 100px; 
+  text-align: center; 
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.custom-token-input-container span {
+    color: #b0b0b0;
+    font-weight: 500;
+}
+.custom-token-total-price {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.custom-token-total-price strong { 
+  color: #00f5ff; 
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.app-container.futuristic {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+}
+
+
+/* Landing Page Styles */
+.landing-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated Background */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.8"/><circle cx="80" cy="30" r="0.5" fill="white" opacity="0.6"/><circle cx="30" cy="70" r="1.5" fill="white" opacity="0.4"/><circle cx="70" cy="80" r="0.8" fill="white" opacity="0.7"/><circle cx="50" cy="10" r="0.3" fill="white" opacity="0.9"/><circle cx="10" cy="60" r="0.7" fill="white" opacity="0.5"/><circle cx="90" cy="90" r="1.2" fill="white" opacity="0.3"/></svg>') repeat;
+  animation: move-stars 50s linear infinite;
+}
+
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="0.5" fill="white" opacity="0.8"/><circle cx="75" cy="75" r="0.3" fill="white" opacity="0.6"/><circle cx="15" cy="85" r="0.7" fill="white" opacity="0.4"/><circle cx="85" cy="15" r="0.4" fill="white" opacity="0.9"/></svg>') repeat;
+  animation: move-twinkling 100s linear infinite;
+}
+
+@keyframes move-stars {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
+
+@keyframes move-twinkling {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-1000px); }
+}
+
+/* Landing Navigation */
+.landing-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  padding: 1rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-logo-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-time {
+  font-family: 'Orbitron', monospace;
+  color: #00f5ff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Landing Content */
+.landing-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 1200px;
+  padding: 8rem 20px 4rem;
+  margin-top: 2rem;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.logo-container {
+  margin-bottom: 3rem;
+}
+
+.logo-glow {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff, #00ff00, #ffff00);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+  filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
+}
+
+.logo-subtitle {
+  font-size: 1.2rem;
+  color: #00f5ff;
+  margin-top: 0.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-pulse {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Statistics Section */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 245, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+}
+
+.stat-number {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00f5ff;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Features Preview */
+.features-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  /* --- PERUBAHAN UTAMA DI SINI --- */
+  /* Mengatur perataan item (ikon dan teks) ke tengah */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.feature-item:hover::before {
+  left: 100%;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 245, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-item span {
+  color: #e0e0e0; /* Memberi warna yang terlihat jelas */
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.feature-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.feature-content p {
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.5;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  margin-bottom: 4rem;
+}
+
+.testimonials-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 0, 255, 0.6);
+  box-shadow: 0 15px 35px rgba(255, 0, 255, 0.2);
+}
+
+.testimonial-content {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  color: #ff00ff;
+  font-weight: 500;
+}
+
+/* CTA Buttons */
+.cta-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.cta-button {
+  position: relative;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.cta-button.primary {
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #00f5ff;
+  border: 2px solid #00f5ff;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 245, 255, 0.4);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(0, 245, 255, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 245, 255, 0.3);
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button:hover .button-glow {
+  left: 100%;
+}
+
+/* Additional Info */
+.additional-info {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #888;
+  opacity: 0.8;
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-cube, .floating-sphere, .floating-triangle {
+  position: absolute;
+  background: linear-gradient(45deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+  border: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.floating-cube {
+  width: 60px;
+  height: 60px;
+  animation: float-rotate 6s ease-in-out infinite;
+}
+
+.floating-sphere {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation: float-bounce 4s ease-in-out infinite;
+}
+
+.floating-triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid rgba(0, 245, 255, 0.2);
+  background: none;
+  animation: float-spin 8s linear infinite;
+}
+
+.cube-1 {  
+  top: 20%;  
+  left: 10%;  
+  animation-delay: 0s;  
+}
+
+.cube-2 {  
+  top: 60%;  
+  right: 15%;  
+  animation-delay: 2s;  
+}
+
+.cube-3 {  
+  bottom: 30%;  
+  left: 20%;  
+  animation-delay: 4s;  
+}
+
+.sphere-1 {  
+  top: 40%;  
+  right: 25%;  
+  animation-delay: 1s;  
+}
+
+.sphere-2 {  
+  bottom: 20%;  
+  right: 10%;  
+  animation-delay: 3s;  
+}
+
+.triangle-1 {
+  top: 15%;
+  right: 5%;
+  animation-delay: 1.5s;
+}
+
+.triangle-2 {
+  bottom: 15%;
+  left: 5%;
+  animation-delay: 3.5s;
+}
+
+@keyframes float-rotate {
+  0%, 100% {  
+    transform: translateY(0px) rotate(0deg);  
+    opacity: 0.7;
+  }
+  50% {  
+    transform: translateY(-20px) rotate(180deg);  
+    opacity: 1;
+  }
+}
+
+@keyframes float-bounce {
+  0%, 100% {  
+    transform: translateY(0px) scale(1);  
+    opacity: 0.6;
+  }
+  50% {  
+    transform: translateY(-15px) scale(1.1);  
+    opacity: 1;
+  }
+}
+
+@keyframes float-spin {
+  0% {  
+    transform: rotate(0deg) translateY(0px);  
+    opacity: 0.5;
+  }
+  50% {  
+    transform: rotate(180deg) translateY(-10px);  
+    opacity: 0.8;
+  }
+  100% {  
+    transform: rotate(360deg) translateY(0px);  
+    opacity: 0.5;
+  }
+}
+
+/* Landing Footer */
+.landing-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 245, 255, 0.2);
+  padding: 2rem 0;
+  z-index: 100;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00f5ff;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-social span {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+.social-link {
+  display: inline-block;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Auth Container */
+.auth-container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    padding: 20px; /* Memberi ruang di tepi layar */
+}
+
+.auth-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.auth-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="cyan" opacity="0.3"/><circle cx="90" cy="20" r="0.5" fill="magenta" opacity="0.4"/><circle cx="20" cy="80" r="1.5" fill="cyan" opacity="0.2"/><circle cx="80" cy="90" r="0.8" fill="magenta" opacity="0.5"/></svg>') repeat;
+  animation: particle-float 20s linear infinite;
+}
+
+@keyframes particle-float {
+  0% {  
+    transform: translateY(0px) translateX(0px);  
+  }
+  100% {  
+    transform: translateY(-1000px) translateX(100px);  
+  }
+}
+
+.back-to-landing-btn {
+    background: rgba(0, 245, 255, 0.1);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    color: #00f5ff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5rem; /* KUNCI UTAMA: Memberi jarak ke kartu di bawahnya */
+    align-self: center; /* Memastikan posisinya di tengah wrapper */
+}
+
+.back-to-landing-btn:hover {
+    background: rgba(0, 245, 255, 0.2);
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(0, 245, 255, 0.3);
+}
+
+.auth-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 420px; 
+    display: flex;
+    flex-direction: column; /* KUNCI UTAMA: Menumpuk item secara vertikal */
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card.futuristic {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 25px;
+    padding: 2.5rem 2.5rem; /* Padding yang lebih seimbang */
+    width: 100%;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card.futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 245, 255, 0.05), rgba(255, 0, 255, 0.05));
+  pointer-events: none;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-logo {
+  margin-bottom: 1rem;
+}
+
+.auth-logo-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+.auth-title {
+  color: #ffffff;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.auth-toggle {
+    text-align: center;
+    margin-top: 1.5rem; /* Memberi jarak dari form di atasnya */
+    padding-top: 1.5rem; /* Memberi jarak dari form di atasnya */
+    border-top: 1px solid rgba(0, 245, 255, 0.2); /* Garis pemisah */
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+.auth-toggle-link {
+    background: none;
+    border: none;
+    color: #00f5ff;
+    cursor: pointer;
+    text-decoration: none; /* Hapus underline default */
+    font-size: inherit;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-toggle-link:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+/* Main Content */
+.main-content-wrapper.futuristic {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow:  
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content-wrapper.futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.02), rgba(255, 0, 255, 0.02));
+  pointer-events: none;
+}
+
+.back-to-menu-btn.futuristic {
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  font-family: 'Exo 2', sans-serif;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.back-to-menu-btn.futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.back-to-menu-btn.futuristic:hover::before {
+  left: 100%;
+}
+
+.back-to-menu-btn.futuristic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
+}
+
+/* Token Info Card */
+.token-info-card.futuristic {
+  background: rgba(0, 245, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.token-info-card.futuristic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+  border-color: rgba(0, 245, 255, 0.5);
+}
+
+.token-icon {
+  font-size: 2rem;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {  
+    transform: scale(1);  
+    filter: brightness(1);
+  }
+  50% {  
+    transform: scale(1.1);  
+    filter: brightness(1.2);
+  }
+}
+
+.token-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.token-text span {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.token-text strong {
+  color: #00f5ff;
+  font-size: 1.5rem;
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+}
+
+/* Premium Upgrade Card */
+.premium-upgrade-card.futuristic {
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(255, 165, 0, 0.1));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.premium-upgrade-card.futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.1), transparent);
+  animation: premium-shine 3s ease-in-out infinite;
+}
+
+@keyframes premium-shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
+.premium-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap; /* Added for responsiveness */
+}
+
+.premium-icon {
+  font-size: 3rem;
+  animation: rocket-bounce 2s ease-in-out infinite;
+}
+
+@keyframes rocket-bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.premium-text {
+  flex-grow: 1;
+}
+
+.premium-text h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.premium-text p {
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+.premium-btn {
+  background: linear-gradient(45deg, #ff00ff, #ff7f00);
+  color: #fff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 0, 255, 0.3);
+}
+
+.premium-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 0, 255, 0.4);
+}
+
+/* === NEWLY ADDED & COMPLETED STYLES === */
+
+/* TopBar Styles */
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-email {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.premium-badge {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  color: #000;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.logout-button {
+  background: transparent;
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background: #ff4d4d;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+/* Mode Selector Styles */
+.mode-selector-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.mode-selector-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+.mode-selector-subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+}
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.mode-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mode-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.mode-card:hover::before {
+  left: 100%;
+}
+
+.mode-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 245, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+}
+
+.mode-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.mode-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.mode-description {
+  font-size: 1rem;
+  color: #b0b0b0;
+}
+
+.premium-lock {
+  color: #ffd700;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Generic Form & Generator Styles */
+.generator-container {
+  padding: 1rem;
+}
+
+.generator-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #00f5ff;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.futuristic-input,
+.futuristic-textarea,
+.futuristic-select {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.futuristic-input:focus,
+.futuristic-textarea:focus,
+.futuristic-select:focus {
+  outline: none;
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.futuristic-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.futuristic-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
+}
+
+.futuristic-button:disabled {
+  background: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.result-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 15px;
+}
+
+.result-title {
+  font-size: 1.5rem;
+  color: #00f5ff;
+  margin-bottom: 1rem;
+}
+
+/* Toastify (Notification) Customization */
+.futuristic-toast {
+  background: rgba(20, 20, 40, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(0, 245, 255, 0.5) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4) !important;
+  color: #fff !important;
+  font-family: 'Exo 2', sans-serif !important;
+}
+
+.Toastify__progress-bar--dark {
+  background: linear-gradient(to right, #00f5ff, #ff00ff) !important;
+}
+
+.Toastify__close-button > svg {
+  fill: #fff !important;
+}
+
+/* Admin Dashboard Styles */
+.admin-dashboard-container {
+  padding: 2rem;
+}
+
+.admin-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ff4d4d;
+  text-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.user-table th, .user-table td {
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  padding: 1rem;
+  text-align: left;
+}
+
+.user-table th {
+  background: rgba(0, 245, 255, 0.1);
+  color: #00f5ff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.user-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.user-table tr:hover {
+  background: rgba(0, 245, 255, 0.08);
+}
+
+/* Result Page (Interview) Styles */
+.result-page-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.result-page-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.2rem;
+  color: #00f5ff;
+  margin-bottom: 2rem;
+}
+
+.result-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.result-section h3 {
+  color: #ff00ff;
+  margin-bottom: 1rem;
+}
+
+.result-section p, .result-section ul {
+  color: #e0e0e0;
+  line-height: 1.7;
+}
+
+.result-section ul {
+  padding-left: 20px;
+}
+
+@media (max-width: 600px) {
+    .back-to-landing-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .auth-wrapper {
+        padding: 0 10px;
+    }
+
+    .auth-card.futuristic {
+        padding: 2.5rem 1.5rem; /* Padding disesuaikan untuk layar sempit */
+        border-radius: 20px;
+    }
+
+    .auth-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .auth-logo-text {
+        font-size: 1.8rem;
+    }
+
+    .auth-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* === Global Styles === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Exo 2', sans-serif; background: #0a0a0a; color: #ffffff; overflow-x: hidden; cursor: none !important;}
+.app-container.futuristic { min-height: 100vh; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); position: relative; }
+
+/* === Auth Page Layout (Login & Register) === */
+.auth-container { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); padding: 20px; }
+.auth-wrapper { position: relative; z-index: 10; width: 100%; max-width: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.auth-card.futuristic { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(0, 245, 255, 0.3); border-radius: 25px; padding: 2.5rem; width: 100%; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); }
+
+/* === Form Styles (Used by Login & Register) === */
+.auth-form-content { display: flex; flex-direction: column; width: 100%; }
+.auth-header { text-align: center; margin-bottom: 2rem; }
+.auth-logo { margin-bottom: 1rem; }
+.auth-logo-text { font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 700; background: linear-gradient(45deg, #00f5ff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.auth-title { color: #fff; margin-top: 1rem; font-size: 1.5rem; font-weight: 600; opacity: 0.9; }
+
+.form-group { position: relative; margin-bottom: 1.5rem; }
+.futuristic-input { width: 100%; padding: 1rem 1rem 1rem 50px; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(0, 245, 255, 0.4); border-radius: 10px; color: #fff; font-size: 1rem; transition: all 0.3s ease; }
+.futuristic-input:focus { outline: none; border-color: #ff00ff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); }
+.input-icon-futuristic { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #888; transition: color 0.3s ease; display: flex; align-items: center; font-size: 1.2rem;}
+.futuristic-input:focus + .input-icon-futuristic { color: #ff00ff; }
+.password-toggle-futuristic { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #888; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; padding: 5px;}
+.form-options { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
+.forgot-password-link-futuristic { background: none; border: none; color: #00f5ff; cursor: pointer; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+.forgot-password-link-futuristic:hover { color: #ff00ff; }
+
+.futuristic-button { width: 100%; min-height: 52px; display: flex; align-items: center; justify-content: center; padding: 1rem; border: none; border-radius: 10px; background: linear-gradient(45deg, #00f5ff, #ff00ff); color: #000; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+.futuristic-button:disabled { background: #555; color: #999; cursor: not-allowed; }
+
+.back-btn-futuristic { width: 100%; padding: 1rem; margin-top: 1rem; background: transparent; border: 1px solid rgba(0, 245, 255, 0.4); color: #00f5ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
+.back-btn-futuristic:hover { background: rgba(0, 245, 255, 0.1); }
+
+.auth-divider { text-align: center; color: #777; margin: 1.5rem 0; text-transform: uppercase; font-size: 0.9rem; position: relative; }
+.auth-divider::before { content: ''; position: absolute; top: 50%; left: 0; width: 40%; height: 1px; background: #555; }
+.auth-divider::after { content: ''; position: absolute; top: 50%; right: 0; width: 40%; height: 1px; background: #555; }
+
+.google-login-section-futuristic .google-btn-wrapper > div { width: 100% !important; }
+
+/* === Landing Page Styles === */
+/* ... (semua style untuk landing page ada di sini, tidak saya hapus) ... */
+.landing-container { min-height: 100vh; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.landing-content { position: relative; z-index: 10; text-align: center; max-width: 1200px; padding: 4rem 20px; }
+.hero-section { position: relative; }
+.logo-container { margin-bottom: 3rem; }
+.logo-text { font-family: 'Orbitron', monospace; font-size: 4rem; font-weight: 900; background: linear-gradient(45deg, #00f5ff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(0, 245, 255, 0.5); }
+.logo-subtitle { font-size: 1.2rem; color: #00f5ff; margin-top: 0.5rem; letter-spacing: 3px; text-transform: uppercase; }
+.hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; }
+.gradient-text { background: linear-gradient(45deg, #00f5ff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-description { font-size: 1.3rem; color: #b0b0b0; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+.features-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+.feature-item { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(0, 245, 255, 0.3); border-radius: 20px; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+.feature-item span { color: #e0e0e0; font-size: 1.1rem; font-weight: 500; }
+.cta-section { display: flex; gap: 2rem; justify-content: center; }
+.cta-button { position: relative; padding: 1.2rem 3rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
+.cta-button.primary { background: linear-gradient(45deg, #00f5ff, #ff00ff); color: #000; }
+.cta-button.secondary { background: transparent; color: #00f5ff; border: 2px solid #00f5ff; }
+/* ... (dan style lainnya yang sudah ada) ... */
+.mode-selector-container-futuristic {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Tampilan Awal: Pemilihan Kategori --- */
+.welcome-text-futuristic {
+  font-family: 'Orbitron', monospace;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle-futuristic {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+}
+
+.card-grid-futuristic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.field-card-futuristic {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.field-card-futuristic:hover {
+  transform: translateY(-5px);
+  border-color: #00f5ff;
+  background: rgba(0, 245, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.1);
+}
+
+.field-card-icon {
+  flex-shrink: 0;
+  color: #00f5ff;
+  background: rgba(0, 245, 255, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-card-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.field-card-content p {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* --- Tampilan Kedua: Pemilihan Mode --- */
+.section-header-futuristic {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.back-btn-futuristic {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.back-btn-futuristic:hover {
+    background: #00f5ff;
+    border-color: #00f5ff;
+    color: #000;
+}
+
+.section-title-futuristic {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #00f5ff;
+}
+
+.mode-card-futuristic {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.mode-card-futuristic:hover {
+    transform: translateY(-5px);
+    border-color: #00f5ff;
+}
+
+.mode-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.mode-card-header h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0;
+}
+.mode-card-futuristic p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0;
+}
+
+/* Badge Premium & Gratis */
+.badge-premium-futuristic, .badge-free-futuristic {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.3em 0.7em;
+    border-radius: 5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-shrink: 0;
+}
+.badge-premium-futuristic { background: #ffd700; color: #000; }
+.badge-free-futuristic { background: rgba(0, 245, 255, 0.2); color: #00f5ff; }
+
+/* Kartu Disabled */
+.mode-card-futuristic.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.mode-card-futuristic.disabled:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notifikasi Premium Global */
+.global-premium-notice-futuristic {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    text-align: center;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 0, 255, 0.1));
+    border: 1px solid #ffd700;
+    border-radius: 15px;
+}
+.global-premium-notice-futuristic p {
+    color: #e0e0e0;
+    margin: 0 0 1rem 0;
+}
+.upgrade-btn-futuristic {
+    background: #ffd700;
+    color: #000;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+.upgrade-btn-futuristic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Mini button loader used in TopBar */
+.css-loader-mini {
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  width: 16px; /* will be overridden inline */
+  height: 16px; /* will be overridden inline */
+  animation: spin 0.9s linear infinite;
+}
+
+/* ---- Landing Polish (scoped to landing container to avoid collisions) ---- */
+.landing-container { background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 60%, #0f1230 100%); }
+.landing-container .hero-section { margin: 2rem 0 1.5rem; }
+.landing-container .logo-text { font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: .5px; text-shadow: 0 0 30px rgba(0,245,255,.35); }
+.landing-container .hero-title { font-size: clamp(1.75rem, 4.2vw, 3rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.15; }
+.landing-container .hero-description { font-size: 1.05rem; color: var(--text-dim); margin-bottom: 2rem; max-width: 820px; margin-inline: auto; line-height: 1.8; }
+.landing-container .features-preview { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem; padding: 0 .5rem; align-items: stretch; }
+.landing-container .feature-item { display:flex; align-items:center; justify-content:center; min-height: 84px; border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.25rem; box-shadow: var(--shadow-soft); background: rgba(255,255,255,0.06); position: relative; overflow: hidden; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease; animation: rise-in .5s ease both; }
+.landing-container .feature-item:hover { transform: translateY(-6px); border-color: rgba(0,245,255,.35); box-shadow: 0 16px 40px rgba(0,0,0,.35), var(--shadow-glow); background: rgba(255,255,255,0.08); }
+.landing-container .feature-item::after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, transparent 0%, rgba(0,245,255,.08) 20%, transparent 40%); transform: translateX(-100%); transition: transform .6s ease; }
+.landing-container .feature-item:hover::after { transform: translateX(100%); }
+.landing-container .feature-item span { color: #e5e7eb; font-size: 1.02rem; font-weight: 700; letter-spacing: .2px; }
+.landing-container .feature-item:nth-child(1) { animation-delay: .02s; }
+.landing-container .feature-item:nth-child(2) { animation-delay: .06s; }
+.landing-container .feature-item:nth-child(3) { animation-delay: .10s; }
+.landing-container .feature-item:nth-child(4) { animation-delay: .14s; }
+.landing-container .feature-item:nth-child(5) { animation-delay: .18s; }
+.landing-container .feature-item:nth-child(6) { animation-delay: .22s; }
+@keyframes rise-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.landing-container .cta-section { gap: 1rem; flex-wrap: wrap; }
+.landing-container .cta-button { padding: .9rem 1.6rem; border-radius: 999px; font-size: 1rem; font-weight: 700; letter-spacing: .2px; }
+.landing-container .cta-button.primary { background: linear-gradient(45deg, var(--accent), var(--accent-2)); }
+.landing-container .cta-button.secondary { color: var(--accent); border-color: var(--accent); }
+.landing-container .cta-button:focus-visible { outline: 3px solid rgba(0,245,255,.35); outline-offset: 2px; }
+
+/* ---- Thinking bubble (chat-like) ---- */
+.ai-thinking-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .75rem 1rem;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  border-radius: 18px;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-soft);
+}
+.ai-thinking-icon { color: var(--accent); display: inline-flex; }
+.ai-thinking-text { color: #e0e0e0; font-size: .95rem; }
+.typing-dots { display: inline-flex; gap: 4px; margin-left: 4px; }
+.typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .6; animation: typing-bounce 1.2s infinite; }
+.typing-dots span:nth-child(2) { animation-delay: .15s; }
+.typing-dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes typing-bounce { 0%, 80%, 100% { transform: translateY(0); opacity: .5; } 40% { transform: translateY(-4px); opacity: 1; } }
+
+/* ---- Redesain Mode Selector: Tabs + Search (tetap tone futuristik) ---- */
+.welcome-stack {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.field-tabs-futuristic {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding: 0.5rem 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    scrollbar-width: none; /* Firefox */
+}
+.field-tabs-futuristic::-webkit-scrollbar { display: none; }
+
+.field-tab-futuristic {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+.field-tab-futuristic:hover {
+    border-color: #00f5ff;
+    box-shadow: 0 0 16px rgba(0, 245, 255, 0.15);
+}
+.field-tab-futuristic.active {
+    background: linear-gradient(45deg, rgba(0,245,255,0.2), rgba(255,0,255,0.15));
+    border-color: #00f5ff;
+    color: #fff;
+}
+.field-tab-icon { display: inline-flex; }
+.field-tab-text { font-weight: 600; font-size: 0.92rem; }
+
+.mode-search-futuristic {
+    margin-left: auto;
+}
+.mode-search-futuristic input {
+    width: clamp(200px, 32vw, 320px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.mode-search-futuristic input:focus {
+    border-color: #00f5ff;
+    box-shadow: 0 0 0 3px rgba(0,245,255,0.15);
+}
+
+.mode-card-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mode-card-icon { display: inline-flex; color: #00f5ff; }
+
+.mode-locked-overlay {
+    align-self: flex-end;
+    margin-top: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    background: rgba(255, 215, 0, 0.15);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+}
+
+/* Responsiveness khusus grid Mode Selector */
+@media (max-width: 640px) {
+    .topbar-container-futuristic { padding: 0.55rem 0.9rem; gap: 0.75rem; }
+    .logo-text-futuristic { font-size: 1.2rem; }
+    .topbar-nav-items-futuristic { gap: 0.5rem; }
+    .topbar-action-btn-futuristic span { display: none; }
+    .product-modal .modal-body-futuristic.product-grid { grid-template-columns: 1fr; }
+    .modal-content-futuristic { max-width: 100%; border-radius: 14px; }
+    .card-grid-futuristic {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+    .mode-search-futuristic { width: 100%; margin-left: 0; }
+    .mode-search-futuristic input { width: 100%; }
+    .section-header-futuristic {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+}
+
+/* ---- Essay Result Rich Text ---- */
+.rich-text-pro {
+    text-align: left;
+}
+.rich-text-pro .rt-paragraph {
+    margin: 0 0 0.75rem 0;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+.rich-text-pro .rt-list {
+    margin: 0 0 0.8rem 0;
+    padding-left: 1.2rem;
+}
+.rich-text-pro .rt-list li {
+    margin: 0.25rem 0;
+    line-height: 1.75;
+}
+.rich-text-pro code {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 0.05rem 0.35rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    color: #00f5ff;
+}
+
+/* ---- Admin Polish (dark, scoped) ---- */
+.admin-page-container { max-width: 1280px; margin: 0 auto; }
+.admin-table-container { backdrop-filter: blur(6px); }
+.admin-table-container .futuristic-table thead th { position: sticky; top: 0; z-index: 1; background: rgba(0, 245, 255, 0.12); }
+.admin-table-container .futuristic-table tbody tr:nth-child(even) { background-color: rgba(255,255,255,0.03); }
+.admin-title { letter-spacing: .2px; }
+
+/* --- Admin Metrics --- */
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+.metric-card { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; display: flex; align-items: center; gap: .9rem; box-shadow: var(--shadow-soft); }
+.metric-icon { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; color: #000; }
+.metric-icon.users { background: linear-gradient(45deg, #a5b4fc, #60a5fa); }
+.metric-icon.premium { background: linear-gradient(45deg, #fde68a, #f59e0b); }
+.metric-icon.basic { background: linear-gradient(45deg, #cbd5e1, #94a3b8); }
+.metric-icon.tokens { background: linear-gradient(45deg, #99f6e4, #22d3ee); }
+.metric-icon.spent { background: linear-gradient(45deg, #fda4af, #fb7185); }
+.metric-value { font-size: 1.4rem; font-weight: 800; color: #fff; }
+.metric-label { color: var(--text-dim); font-weight: 600; font-size: .85rem; }
+
+/* --- Homepage Pro Sections --- */
+.trustbar { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; padding: 1rem 1.25rem 2rem; max-width: 1100px; margin-inline: auto; }
+.trustbar .trust-item { display: inline-flex; align-items: center; gap: .6rem; color: #d1d5db; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px; padding: .6rem .9rem; }
+.section-pro { padding: 2.5rem 1rem; max-width: 1200px; margin: 0 auto; }
+.section-heading { text-align: center; margin-bottom: 1.25rem; }
+.section-heading h2 { font-size: clamp(1.4rem, 2.4vw, 2rem); color: #fff; margin: 0 0 .25rem; }
+.section-heading p { color: var(--text-dim); margin: 0; }
+.feature-grid-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.feature-card-pro { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; box-shadow: var(--shadow-soft); transition: transform .2s ease, box-shadow .2s ease; }
+.feature-card-pro:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,.28), var(--shadow-glow); }
+.feature-card-pro .icon { color: var(--accent); margin-bottom: .5rem; }
+.feature-card-pro h3 { color: #fff; font-size: 1.05rem; margin: 0 0 .25rem; }
+.feature-card-pro p { color: var(--text-dim); margin: 0; line-height: 1.7; }
+.how-it-works .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.step-card { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 16px; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: .4rem; }
+.step-icon { width: 34px; height: 34px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: rgba(0,245,255,0.18); color: #00f5ff; }
+.step-card h4 { color: #fff; margin: .25rem 0; }
+.step-card p { color: var(--text-dim); margin: 0; }
+.cta-banner-pro { padding: 0 1rem 1rem; }
+.cta-banner-inner { max-width: 1200px; margin: 0 auto; border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: linear-gradient(45deg, rgba(0,245,255,.12), rgba(255,0,255,.12)); box-shadow: var(--shadow-soft); }
+.cta-banner-inner h3 { color: #fff; margin: 0 0 .25rem; }
+.cta-banner-inner p { color: var(--text-dim); margin: 0; }
+
+/* Promo banner (CRM) */
+.promo-banner { position: sticky; top: 0; z-index: 1040; display: flex; align-items: center; justify-content: center; gap: .75rem; background: linear-gradient(90deg, rgba(0,245,255,.16), rgba(255,0,255,.16)); border-bottom: 1px solid var(--border); padding: .5rem .75rem; backdrop-filter: blur(8px); }
+.promo-banner .promo-text { color: #fff; font-weight: 600; }
+.promo-banner .promo-actions { display: inline-flex; gap: .5rem; align-items: center; }
+.promo-banner .promo-dismiss { background: transparent; border: 1px solid var(--border); color: #e5e7eb; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; }
+
+/* Payment success banner */
+.success-banner { position: sticky; top: 0; z-index: 1041; display: flex; align-items: center; justify-content: space-between; gap: .75rem; background: linear-gradient(90deg, rgba(34,197,94,.15), rgba(34,197,94,.08)); border-bottom: 1px solid rgba(34,197,94,.35); padding: .6rem .9rem; backdrop-filter: blur(8px); }
+.success-banner-text { color: #d1fae5; font-weight: 600; }
+
+/* --- Global small standardizations (buttons, loading, toasts) --- */
+/* Apply a consistent loading state to any button using data-loading="true" */
+button[data-loading="true"] {
+  position: relative;
+  pointer-events: none;
+  opacity: .85;
+}
+button[data-loading="true"] > * { opacity: 0.0; }
+button[data-loading="true"]::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 16px; height: 16px;
+  margin-top: -8px; margin-left: -8px;
+  border: 2px solid rgba(255,255,255,.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Size variants for generic loading spinner */
+button.small[data-loading="true"]::after { width: 14px; height: 14px; margin-top: -7px; margin-left: -7px; }
+button.x-small[data-loading="true"]::after { width: 12px; height: 12px; margin-top: -6px; margin-left: -6px; }
+
+/* Ensure Toastify dark progress bar is consistent */
+.Toastify__progress-bar--dark { background: linear-gradient(90deg, #00f5ff, #ff00ff) !important; }
+.success-dismiss { background: transparent; border: 1px solid rgba(34,197,94,.35); color: #d1fae5; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; }
+
+/* Loading overlay small variance */
+.futuristic-button.x-small[data-loading="true"]::after { width: 12px; height: 12px; }
+
+/* ---- Unified Button Loading Style (All Features) ---- */
+/* Target common buttons used across the app */
+.futuristic-button,
+.select-product-btn-futuristic,
+.leaderboard-btn-futuristic,
+.logout-btn-futuristic,
+.cta-button,
+.generate-button,
+.generate-btn,
+.enhance-button {
+    position: relative;
+}
+
+/* Animated spinner overlay when loading */
+.futuristic-button[data-loading="true"],
+.select-product-btn-futuristic[data-loading="true"],
+.leaderboard-btn-futuristic[data-loading="true"],
+.logout-btn-futuristic[data-loading="true"],
+.cta-button[data-loading="true"],
+.generate-button[data-loading="true"],
+.generate-btn[data-loading="true"],
+.enhance-button[data-loading="true"] {
+    pointer-events: none;
+}
+.futuristic-button[data-loading="true"] > *,
+.select-product-btn-futuristic[data-loading="true"] > *,
+.leaderboard-btn-futuristic[data-loading="true"] > *,
+.logout-btn-futuristic[data-loading="true"] > *,
+.cta-button[data-loading="true"] > *,
+.generate-button[data-loading="true"] > *,
+.generate-btn[data-loading="true"] > *,
+.enhance-button[data-loading="true"] > * {
+    opacity: 0;
+}
+.futuristic-button[data-loading="true"]::after,
+.select-product-btn-futuristic[data-loading="true"]::after,
+.leaderboard-btn-futuristic[data-loading="true"]::after,
+.logout-btn-futuristic[data-loading="true"]::after,
+.cta-button[data-loading="true"]::after,
+.generate-button[data-loading="true"]::after,
+.generate-btn[data-loading="true"]::after,
+.enhance-button[data-loading="true"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-top-color: #00f5ff; /* neon cyan tone */
+    animation: spin 0.9s linear infinite;
+}
+
+/* Optional: small variant */
+.futuristic-button.small[data-loading="true"]::after,
+.cta-button.small[data-loading="true"]::after,
+.select-product-btn-futuristic[data-loading="true"]::after {
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,303 @@
+/* src/styles/InterviewPage.css */
+
+.interview-page-container {
+  max-width: 780px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Styling Modal Global untuk Halaman Ini --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 40, 50, 0.85); /* Overlay lebih gelap & buram */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1055; 
+  backdrop-filter: blur(4px); /* Efek blur */
+  animation-duration: 0.3s; /* Durasi animasi dari animate.css */
+}
+
+.modal-content {
+  background-color: #ffffff; /* Latar belakang modal SOLID putih */
+  padding: 2rem 2.25rem; /* Padding lebih konsisten */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 480px; /* Lebar modal */
+  animation-duration: 0.4s; /* Durasi animasi dari animate.css */
+  border-top: 5px solid #007bff; /* Aksen warna di atas modal */
+}
+
+.modal-content h3, .modal-content h4 {
+  font-weight: 600;
+  color: #004a99; /* Warna judul utama */
+  margin-bottom: 1.25rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content h3 .lucide-icon, .modal-content h4 .lucide-icon {
+    margin-right: 0.6rem;
+    stroke-width: 2.2px;
+}
+.modal-content .form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #495057;
+    margin-bottom: 0.4rem;
+}
+.modal-content .form-control, .modal-content .form-select {
+  font-size: 0.95rem;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.85rem; /* Jarak antar input/select */
+  border: 1px solid #ced4da;
+}
+.modal-content .form-control:focus, .modal-content .form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+.modal-content .btn {
+  font-weight: 500;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+}
+.modal-content .btn .lucide-icon {
+    vertical-align: -3px;
+    margin-right: 0.3rem;
+}
+
+/* Styling khusus untuk modal pilihan interview */
+.interview-options-modal h3 {
+    margin-bottom: 1rem;
+}
+.interview-options-modal h4 {
+    text-align: left;
+    font-size: 1rem; /* Sedikit lebih kecil untuk sub-judul */
+    color: #343a40;
+    margin-top: 1rem;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 0.4rem;
+}
+.interview-options-modal .options-group-title { /* Jika Anda ingin judul untuk grup radio */
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+}
+.interview-options-modal .form-check-label {
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.8rem; /* Beri padding agar seperti tombol */
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+.interview-options-modal .form-check-input[type="radio"] {
+    display: none; /* Sembunyikan radio button asli */
+}
+.interview-options-modal .form-check-input[type="radio"]:checked + .form-check-label {
+    background-color: #0d6efd; /* Primary Bootstrap */
+    border-color: #0a58ca;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(13, 110, 253, 0.3);
+}
+.interview-options-modal .form-check-label:hover:not(.form-check-input:checked + .form-check-label) {
+    background-color: #f0f8ff; /* Alice blue hover */
+    border-color: #b8daff;
+}
+.interview-options-modal .form-check-inline {
+    margin-right: 0.5rem;
+}
+.interview-options-modal .form-control-sm, .interview-options-modal .form-select-sm {
+    font-size: 0.9rem;
+}
+
+/* --- Styling Halaman Interview Utama --- */
+.page-main-header { /* Untuk membungkus judul dan tombol settings */
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+.interview-page-container .title {
+  color: #004085;
+  margin-bottom: 0; 
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.interview-page-container .title .lucide-icon {
+    vertical-align: -4px;
+}
+.page-main-header .btn-sm { /* Tombol settings */
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+.page-main-header .btn-sm .lucide-icon {
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.interview-context-info {
+    font-size: 0.85rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef !important;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+}
+.interview-context-info p {
+    margin-bottom: 0.4rem;
+}
+.interview-context-info .lucide-icon {
+    vertical-align: -3px;
+    margin-right: 0.3rem;
+}
+
+.question-box {
+  background-color: #eef5ff; /* Latar biru lebih elegan */
+  border-left: 5px solid #007bff; /* Aksen biru Bootstrap */
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  min-height: 75px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: background-color 0.3s;
+}
+.question-box .label {
+  font-weight: 500;
+  color: #0056b3;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.question-box .typing-indicator {
+  font-style: italic;
+  color: #5a6268;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+.question-box .typing-indicator .clip-loader > div {
+    background-color: #007bff !important; /* Warna spinner */
+}
+.question-box .fade-in-text { /* Untuk pertanyaan yang muncul */
+  font-size: 1.1rem;
+  color: #2c3e50;
+  line-height: 1.65;
+}
+
+.button-group {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.button-group .btn-lg { /* Tombol Mulai Interview lebih besar */
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 50px; /* Tombol pill */
+}
+.button-group .btn .lucide-icon {
+    vertical-align: -4px;
+    margin-right: 0.5rem;
+}
+
+.audio-recorder-controls {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.audio-visualization-canvas { /* Menggantikan .audio-visualization */
+  width: 100%;
+  max-width: 380px; 
+  height: 55px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+}
+.audio-recorder-controls .btn-record, .audio-recorder-controls .btn-stop {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px; /* Tombol rekam/stop pill */
+  min-width: 180px; /* Lebar minimal tombol */
+  justify-content: center;
+}
+.audio-recorder-controls .btn-record .lucide-icon,
+.audio-recorder-controls .btn-stop .lucide-icon {
+    width: 18px;
+    height: 18px;
+}
+
+
+.answer-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: #fdfdff; /* Latar jawaban lebih terang */
+  border-radius: 8px;
+  border: 1px solid #e0e7ef;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+.answer-box p strong {
+  color: #374151;
+  font-size: 0.85rem;
+}
+.answer-box .answer-content {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  min-height: 35px;
+  line-height: 1.6;
+  white-space: pre-wrap; /* Agar line break dari transkripsi tetap ada */
+}
+
+.question-counter {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e7ef;
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Animasi umum jika diperlukan di luar animate.css */
+.fade-in {
+  animation: fadeInSimple 0.5s ease-out;
+}
+@keyframes fadeInSimple {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

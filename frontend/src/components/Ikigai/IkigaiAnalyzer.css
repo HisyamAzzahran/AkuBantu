@@ -1,0 +1,49 @@
+.ikigai-analyzer-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #f0f8ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.ikigai-analyzer-container h4 {
+  text-align: center;
+  color: #004e89;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.ikigai-analyzer-container input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.ikigai-analyzer-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0077b6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.ikigai-analyzer-container button:hover {
+  background-color: #023e8a;
+}
+
+.ikigai-hasil {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  border: 1px dashed #ccc;
+}

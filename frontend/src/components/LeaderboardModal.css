@@ -1,0 +1,130 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 24, 39, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: scaleUp 0.3s ease;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+}
+.modal-close-btn:hover {
+    color: #1f2937;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+.header-icon {
+    color: #4f46e5;
+    margin-bottom: 0.5rem;
+}
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #111827;
+}
+.modal-subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.leaderboard-list {
+    max-height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.list-item.rank-1 {
+    background: linear-gradient(to right, #fffbeb, #fefce8);
+    border-color: #fcd34d;
+    border-width: 2px;
+}
+.list-item.rank-2 {
+    background: linear-gradient(to right, #f9fafb, #f1f5f9);
+    border-color: #d1d5db;
+}
+.list-item.rank-3 {
+    background: linear-gradient(to right, #fdf2f2, #fff7ed);
+    border-color: #fca5a5;
+}
+
+.rank-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4b5563;
+    width: 50px;
+    text-align: center;
+}
+
+.user-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+.username {
+    font-weight: 600;
+    color: #1f2937;
+}
+.email {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+.points {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #4f46e5;
+}
+
+.loader-container, .error-container {
+    padding: 3rem;
+    text-align: center;
+    color: #6b7280;
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }

@@ -1,0 +1,42 @@
+.ikigai-form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #fff7e6;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ikigai-form-container h4 {
+  color: #6c4c03;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ikigai-form-container input,
+.ikigai-form-container select {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.ikigai-form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f4a261;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.ikigai-form-container button:hover {
+  background-color: #e76f51;
+}

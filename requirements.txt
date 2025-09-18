@@ -1,0 +1,14 @@
+flask
+flask-cors
+python-dotenv
+openai
+bcrypt
+requests
+PyMuPDF
+python-docx
+reportlab
+flask_sqlalchemy
+Flask-Mail
+google-auth
+midtransclient
+itsdangerous

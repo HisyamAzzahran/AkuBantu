@@ -1,0 +1,91 @@
+/* Styling untuk Kontrol Audio Recorder */
+.audio-recorder-controls {
+  background-color: #f8f9fa; /* Warna latar yang lembut, bisa disesuaikan */
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column; /* Susun canvas di atas tombol */
+  align-items: center;
+  gap: 0.75rem; /* Jarak antara canvas dan grup tombol */
+  margin: 1.5rem 0; /* Margin atas dan bawah */
+}
+
+/* Styling untuk Canvas Visualisasi Audio */
+.audio-visualization-canvas {
+  width: 100%;
+  max-width: 350px; /* Atau sesuaikan dengan lebar yang Anda inginkan */
+  height: 50px; /* Tinggi canvas visualisasi */
+  background-color: #e9ecef; /* Warna latar default untuk canvas */
+  border-radius: 6px;
+  /* border: 1px dashed #ced4da; */ /* Opsional, jika ingin border */
+}
+
+/* Styling untuk Grup Tombol di dalam Audio Recorder */
+.audio-recorder-controls .d-flex {
+  width: 100%; /* Agar tombol bisa full width jika hanya satu, atau terdistribusi */
+}
+
+.audio-recorder-controls .btn {
+  font-size: 0.9rem; /* Ukuran font tombol */
+  padding: 0.6rem 1.2rem; /* Padding tombol */
+  border-radius: 50px; /* Tombol berbentuk pill/sangat bulat */
+  min-width: 180px; /* Lebar minimal tombol */
+  justify-content: center; /* Pusatkan konten tombol (ikon & teks) */
+  font-weight: 500;
+  transition: all 0.2s ease-in-out; /* Transisi halus */
+}
+
+.audio-recorder-controls .btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.audio-recorder-controls .btn .lucide-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem; /* Jarak ikon dari teks */
+  vertical-align: -3px; /* Sesuaikan alignment vertikal ikon */
+}
+
+/* Styling untuk ikon ClipLoader di dalam tombol */
+.audio-recorder-controls .btn .clip-loader > div {
+    background-color: #fff !important; /* Warna spinner putih (jika tombol primary/danger/dark) */
+}
+
+/* Anda bisa menambahkan styling spesifik untuk tombol rekam dan stop jika perlu */
+.audio-recorder-controls .btn-danger { /* Tombol "Mulai Rekam" */
+  /* Gaya khusus jika ada */
+}
+.audio-recorder-controls .btn-dark { /* Tombol "Stop & Kirim" */
+  /* Gaya khusus jika ada */
+}
+.audio-recorder-controls .btn-dark .clip-loader > div { /* Jika tombol Stop pakai .btn-dark */
+    background-color: #fff !important;
+}
+
+
+/* Styling opsional untuk pesan transkripsi jika ditampilkan di sini (meskipun sekarang di InterviewPage) */
+.transcript-preview {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #495057;
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+}
+.transcript-preview strong {
+  color: #212529;
+}
+
+/* Animasi spin untuk ikon loader jika tidak menggunakan ClipLoader atau ingin override */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.lucide-loader-spinning { /* Kelas ini bisa Anda tambahkan ke ikon Loader2 di JSX jika perlu */
+  animation: spin 1s linear infinite;
+}

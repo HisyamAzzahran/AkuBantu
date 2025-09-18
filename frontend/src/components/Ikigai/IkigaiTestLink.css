@@ -1,0 +1,56 @@
+.ikigai-test-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #e3fdfd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.ikigai-test-container h4 {
+  color: #026773;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.test-button {
+  padding: 12px;
+  background-color: #3ec1d3;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.test-button:hover {
+  background-color: #00adb5;
+}
+
+.btn-lanjut {
+  background-color: #00b894;
+  padding: 12px 20px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-lanjut:hover {
+  background-color: #019874;
+}

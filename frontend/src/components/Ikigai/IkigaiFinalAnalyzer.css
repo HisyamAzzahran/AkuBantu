@@ -1,0 +1,117 @@
+.ikigai-final-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.ikigai-final-container h4 {
+  text-align: center;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.choice-section {
+  margin-bottom: 25px;
+}
+
+.choice-section label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.choice-box {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s ease;
+}
+
+.choice-box:hover {
+  background-color: #dfe6e9;
+}
+
+.choice-box.selected {
+  border-color: #00cec9;
+  background-color: #a2ded0;
+}
+
+.ikigai-final-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00b894;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.ikigai-final-container button:hover {
+  background-color: #019875;
+}
+
+.ikigai-hasil pre {
+  white-space: pre-wrap;
+  background: #fff;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+}
+.markdown-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.markdown-preview th, .markdown-preview td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.markdown-preview th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+
+.markdown-preview pre {
+  white-space: pre-wrap;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Di IkigaiFinalAnalyzer.css atau CSS global */
+.choice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Jarak antar choice-box */
+}
+
+.choice-box {
+  /* Styling Anda yang sudah ada untuk choice-box */
+  /* Misalnya:
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f9f9f9; */
+}
+
+.choice-box.selected {
+  /* Styling Anda yang sudah ada untuk choice-box yang terpilih */
+  /* Misalnya:
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3; */
+}
+
