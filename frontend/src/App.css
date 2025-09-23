@@ -3567,14 +3567,21 @@ body { font-family: 'Exo 2', sans-serif; background: #0a0a0a; color: #ffffff; ov
 }
 
 .logo-text-futuristic {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #00f5ff, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.logo-image-futuristic {
+  display: block;
+  height: 38px;
+  width: auto;
 }
 
 .topbar-nav-items-futuristic { display: flex; gap: 1rem; }
@@ -5574,7 +5581,8 @@ body { font-family: 'Exo 2', sans-serif; background: #0a0a0a; color: #ffffff; ov
 /* Responsiveness khusus grid Mode Selector */
 @media (max-width: 640px) {
     .topbar-container-futuristic { padding: 0.55rem 0.9rem; gap: 0.75rem; }
-    .logo-text-futuristic { font-size: 1.2rem; }
+    .logo-text-futuristic { width: 100%; justify-content: center; }
+    .logo-image-futuristic { height: 32px; }
     .topbar-nav-items-futuristic { gap: 0.5rem; }
     .topbar-action-btn-futuristic span { display: none; }
     .product-modal .modal-body-futuristic.product-grid { grid-template-columns: 1fr; }
@@ -5591,6 +5599,7 @@ body { font-family: 'Exo 2', sans-serif; background: #0a0a0a; color: #ffffff; ov
         align-items: stretch;
     }
 }
+
 
 /* ---- Essay Result Rich Text ---- */
 .rich-text-pro {
@@ -5763,3 +5772,5 @@ button.x-small[data-loading="true"]::after { width: 12px; height: 12px; margin-t
     width: 16px;
     height: 16px;
 }
+
+
