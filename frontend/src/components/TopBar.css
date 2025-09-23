@@ -12,15 +12,23 @@
 }
 
 .logo-text-futuristic {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #00f5ff, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-right: auto; /* Mendorong item lain ke kanan */
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
+
+.logo-image-futuristic {
+  display: block;
+  height: 38px;
+  width: auto;
+}
+
 
 /* --- Tombol Navigasi Tengah --- */
 .topbar-nav-items-futuristic {
@@ -194,7 +202,26 @@
 /* Responsive untuk Mobile */
 @media (max-width: 992px) {
   .topbar-container-futuristic { flex-wrap: wrap; justify-content: space-between; padding: 0.75rem 1rem; }
-  .logo-text-futuristic { width: 100%; text-align: center; margin-bottom: 0.75rem; }
-  .topbar-nav-items-futuristic { order: 3; width: 100%; justify-content: center; margin-top: 0.75rem; }
-  .topbar-right-futuristic { order: 2; }
+  .logo-text-futuristic {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
+
+.logo-image-futuristic {
+  display: block;
+  height: 38px;
+  width: auto;
+}
+
+  .topbar-nav-items-futuristic { order: 3; width: 100%; justify-content: center; margin-top: 0.75rem; }
+  .logo-image-futuristic { height: 32px; }`r`n  .topbar-right-futuristic { order: 2; }
+}
+
+

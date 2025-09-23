@@ -29,7 +29,6 @@ const Modal = ({ onClose, children }) => {
     );
 };
 
-// Loader kecil untuk tombol (mengganti referensi CssLoader yang tidak didefinisikan)
 const CssLoader = ({ size = 16, color = 'currentColor' }) => (
     <span
         className="css-loader-mini"
@@ -41,8 +40,6 @@ const CssLoader = ({ size = 16, color = 'currentColor' }) => (
         aria-hidden="true"
     />
 );
-
-// CSS Loader (tidak dipakai lagi, diseragamkan via CSS data-loading)
 
 const TopBar = ({ email, username, isPremium, onLogout, setTokenSisa, setIsPremiumState }) => {
     const navigate = useNavigate();
@@ -97,11 +94,9 @@ const TopBar = ({ email, username, isPremium, onLogout, setTokenSisa, setIsPremi
         };
     }, [showProductSelectionModal]);
 
-    // EFEK UNTUK SCRIPT MIDTRANS
     const [midtransEnv, setMidtransEnv] = useState(FALLBACK_ENV);
     const [midtransClientKey, setMidtransClientKey] = useState(FALLBACK_CLIENT_KEY);
 
-    // Ambil konfigurasi dari backend lalu inject script Snap sesuai environment sebenarnya
     useEffect(() => {
         let cancelled = false;
         const fetchConfigAndInject = async () => {
@@ -228,9 +223,11 @@ const TopBar = ({ email, username, isPremium, onLogout, setTokenSisa, setIsPremi
 
     return (
         <>
-            {/* BAGIAN TOP BAR (LENGKAP) */}
+            {/* BAGIAN TOP BAR */}
             <div className="topbar-container-futuristic">
-                <div className="logo-text-futuristic">AkuBantu</div>
+                <div className="logo-text-futuristic">
+                    <img src="/akubantulogo.png" alt="AkuBantu" className="logo-image-futuristic" />
+                </div>
                 <div className="topbar-nav-items-futuristic">
                     {!isPremium && (
                         <button className="topbar-action-btn-futuristic premium-btn" onClick={() => openProductSelectionModal('premium')} disabled={isLoadingPayment && currentProcessingItemId?.startsWith('PREMIUM')}>
@@ -317,4 +314,5 @@ const TopBar = ({ email, username, isPremium, onLogout, setTokenSisa, setIsPremi
 };
 
 export default TopBar;
+
 
