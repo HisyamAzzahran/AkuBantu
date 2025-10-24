@@ -10,7 +10,6 @@ const API_URL = "https://webai-production-b975.up.railway.app";
 const TOKEN_COST_PER_GENERATION = 3;
 const FEATURE_NAME_LOG = "student_goals_planning";
 
-// --- PDF Document Component (Tidak perlu diubah) ---
 const pdfStyles = StyleSheet.create({
     page: { paddingTop: 35, paddingBottom: 65, paddingHorizontal: 35, fontFamily: 'Helvetica', fontSize: 10, lineHeight: 1.4, },
     header: { fontSize: 20, textAlign: 'center', marginBottom: 10, color: '#2c3e50', fontWeight: 'bold' },

@@ -1,24 +1,8 @@
 import React from 'react';
 import { Linkedin, Instagram } from 'lucide-react';
-import fahmiImage from './assets/fahmi.JPG'; 
-import nanaImage from './assets/nana.jpeg';
-import ginanImage from './assets/ginan.jpeg';
 import samImage from './assets/sam.png';
 // Data untuk tim, Anda bisa mengganti nama, jabatan, dan link IG di sini
 const teamMembers = [
-  {
-    name: 'Fahmi Nur Alim',
-    title: 'Founder & CEO',
-    ig: 'https://www.instagram.com/fahminur.a/',
-    // Ganti dengan URL gambar asli jika ada
-    imageUrl: fahmiImage 
-  },
-  {
-    name: 'Ginanjar Pamungkas',
-    title: 'Co-Founder & COO',
-    ig: 'https://www.instagram.com/ginan.ph/',
-    imageUrl: ginanImage
-  },
   {
     name: 'Hisyam Az-Zahran',
     title: 'Co-Founder & CPO',
@@ -26,10 +10,28 @@ const teamMembers = [
     imageUrl: samImage 
   },
   {
-    name: 'Najwa Nur Awalia',
-    title: 'Co-Founder & CMO',
-    ig: 'https://www.instagram.com/najwa.nurawalia/',
-    imageUrl: nanaImage
+    name: 'Jepri',
+    title: '',
+    ig: '#',
+    imageUrl: ''
+  },
+  {
+    name: 'Evan',
+    title: '',
+    ig: '#',
+    imageUrl: ''
+  },
+  {
+    name: 'Jeremi',
+    title: '',
+    ig: '#',
+    imageUrl: ''
+  },
+  {
+    name: 'Dzul',
+    title: '',
+    ig: '#',
+    imageUrl: ''
   }
 ];
 
