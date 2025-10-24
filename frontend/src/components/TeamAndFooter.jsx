@@ -5,31 +5,31 @@ import samImage from './assets/sam.png';
 const teamMembers = [
   {
     name: 'Hisyam Az-Zahran',
-    title: 'Co-Founder & CPO',
+    title: 'Project Manager',
     ig: 'https://www.instagram.com/mhmdhisyaam/',
     imageUrl: samImage 
   },
   {
     name: 'Jepri',
-    title: '',
+    title: 'Frontend Dev',
     ig: '#',
     imageUrl: ''
   },
   {
     name: 'Evan',
-    title: '',
+    title: 'Backend Dev',
     ig: '#',
     imageUrl: ''
   },
   {
     name: 'Jeremi',
-    title: '',
+    title: 'Frontend Dev',
     ig: '#',
     imageUrl: ''
   },
   {
     name: 'Dzul',
-    title: '',
+    title: 'AI Engineer',
     ig: '#',
     imageUrl: ''
   }
@@ -45,7 +45,13 @@ const TeamAndFooter = () => {
           {teamMembers.map((member, index) => (
             <div key={index} className="team-member-card-futuristic">
               <div className="team-member-photo-wrapper">
-                <img src={member.imageUrl} alt={member.name} />
+                {member.imageUrl ? (
+                  <img src={member.imageUrl} alt={member.name} />
+                ) : (
+                  <div className="team-member-placeholder">
+                    {member.name?.charAt(0) || '?'}
+                  </div>
+                )}
               </div>
               <h4 className="team-member-name">{member.name}</h4>
               <p className="team-member-title">{member.title}</p>
